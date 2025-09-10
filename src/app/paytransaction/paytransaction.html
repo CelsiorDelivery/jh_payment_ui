@@ -1,0 +1,29 @@
+<div class="row">
+    <div class="col-lg-8 offset-lg-2">
+<table class="table table-bordered table-striped">
+  <thead>
+    <tr>
+      <th>Transaction ID</th>
+      <th>Transaction Date</th>
+      <th>Amount</th>
+      <th>trans Type</th>
+      <th>Description</th>
+      <th>Balance</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let trans of userTrans">
+        <td>{{ trans.transId }}</td>
+        <td>{{trans.transDate|date:'short'}}</td>
+        <td>{{trans.amount}}</td>
+        <td>{{trans.transtype}}</td>
+        <td>{{trans.description}}</td>
+        <td>{{trans.balAfterTrans}}</td>
+    </tr>
+  </tbody>
+</table>
+
+
+        </div>
+       
+</div>

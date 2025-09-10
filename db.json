@@ -1,0 +1,49 @@
+{
+  "transactionData": [
+    {
+      "userId": "1",
+      "transId": "101",
+      "transDate": "2025-09-01",
+      "amount": "25000",
+      "transtype": "credit",
+      "description": "Salary",
+      "balAfterTrans": "26000"
+    },
+    {
+      "userId": "1",
+      "transId": "102",
+      "transDate": "2025-09-02",
+      "amount": "100",
+      "transtype": "debit",
+      "description": "Groceries",
+      "balAfterTrans": "25500"
+    },
+    {
+      "userId": "1",
+      "transId": "103",
+      "transDate": "2025-09-03",
+      "amount": "200",
+      "transtype": "debit",
+      "description": "Utilities",
+      "balAfterTrans": "25300"
+    },
+    {
+      "userId": "1",
+      "transId": "104",
+      "transDate": "2025-09-04",
+      "amount": "300",
+      "transtype": "credit",
+      "description": "Freelance Work",
+      "balAfterTrans": "25600"
+    },
+    {
+      "userId": "1",
+      "transId": "105",
+      "transDate": "2025-09-05",
+      "amount": "150",
+      "transtype": "debit",
+      "description": "Dining Out",
+      "balAfterTrans": "25150"
+    }
+  ]
+}
