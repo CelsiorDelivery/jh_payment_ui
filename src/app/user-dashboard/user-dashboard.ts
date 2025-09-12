@@ -1,37 +1,40 @@
-import { Component, OnInit } from '@angular/core';
-import { AccTranService } from '../services/acc-tran-service';
-import chart from 'chart.js/auto';
-import { UserAccountTrans } from '../model/user-account-trans';
-import { FormsModule } from '@angular/forms';
-//import { ChartData, ChartOptions } from 'chart.js';
-import { Chart, registerables, ChartType } from 'chart.js';
 import { CommonModule } from '@angular/common';
+import { Component } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { Chart, ChartType, registerables } from 'chart.js';
+import { UserAccountTrans } from '../model/user-account-trans';
+import { AccTranService } from '../services/acc-tran-service';
+
 Chart.register(...registerables);
+
 @Component({
-  selector: 'app-acctransaction',
+  selector: 'app-user-dashboard',
   standalone: true,
-  templateUrl: './acctransaction.html',
+  templateUrl: './user-dashboard.html',
   imports: [CommonModule, FormsModule],
-  styleUrl: './acctransaction.css'
+  styleUrl: './user-dashboard.css'
 })
-export class Acctransaction implements OnInit {
+
+export class UserDashboard {
   chart: any;
   selectedChartType: ChartType = 'line';
   chartTypes: ChartType[] = ['line', 'bar', 'pie','doughnut'];
   userAccTransaction: UserAccountTrans[] = [];
 
-  constructor(private accTranService: AccTranService) {
-  }
+  constructor(private accTranService: AccTranService) { }
+
   ngOnInit(): void {
     this.accTranService.getTransactions().subscribe(data => {
       this.userAccTransaction = data;
       this.createBarChart();
     });
   }
+
   onChartTypeChange(newType: string) {
     this.selectedChartType = newType as ChartType;
     this.createBarChart();
   }
+  
   createBarChart() {
     const labels = this.userAccTransaction.map(t => t.transDate);
     const data = this.userAccTransaction.map(t => t.amount);
