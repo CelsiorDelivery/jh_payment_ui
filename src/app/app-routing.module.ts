@@ -25,6 +25,10 @@ const routes: Routes = [
         loadComponent: () => import('./jhmain/user/user.component').then((c) => c.UserCompnent)
       },
       {
+        path: 'transfer',
+        loadComponent: () => import('./jhmain/payment-initiation/payment-initiation').then((c) => c.PaymentInitiation)
+      },
+      {
         path: 'component',
         loadChildren: () => import('./jhmain/ui-element/ui-basic.module').then((m) => m.UiBasicModule)
       },

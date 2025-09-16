@@ -38,6 +38,13 @@ export const NavigationItems: NavigationItem[] = [
         type: 'item',
         url: '/user',
         icon: 'feather icon-user'
+      },
+      {
+        id: 'transfer',
+        title: 'Transfer',
+        type: 'item',
+        url: '/transfer',
+        icon: 'feather icon-more-vertical'
       }
     ]
   },
