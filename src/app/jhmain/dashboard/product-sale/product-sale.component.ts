@@ -1,5 +1,5 @@
 // angular import
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 // project import
 import { SharedModule } from 'src/app/theme/shared/shared.module';
@@ -17,6 +17,9 @@ interface ProgressBarItem {
   styleUrls: ['./product-sale.component.scss']
 })
 export class ProductSaleComponent {
+  @Input() users: Array<any> = [];
+
+
   // public method
   product_sale = [
     {

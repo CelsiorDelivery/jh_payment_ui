@@ -1,1 +1,111 @@
-// This file is intentionally left empty to allow customers to add custom CSS if needed.
+    body {
+      background-color: #f8f9fa;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    .sidebar {
+      background-color: #fff;
+      height: 100vh;
+      padding: 20px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    .sidebar .nav-link {
+      color: #495057;
+      font-weight: 500;
+      padding: 10px 0;
+    }
+    .sidebar .nav-link.active {
+      color: #0d6efd;
+    }
+    .main-content {
+      padding: 30px;
+    }
+    .card {
+      border: none;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+      margin-bottom: 24px;
+    }
+    .profile-completeness {
+      background-color: #fff;
+    }
+    .profile-item {
+      display: flex;
+      align-items: center;
+      margin-bottom: 12px;
+    }
+    .profile-item i {
+      color: #28a745;
+      margin-right: 10px;
+    }
+    .profile-item .pending {
+      color: #6c757d;
+    }
+    .recent-activity {
+      background-color: #fff;
+    }
+    .recent-activity table {
+      width: 100%;
+    }
+    .recent-activity th {
+      font-weight: 600;
+      color: #6c757d;
+      border-bottom: 2px solid #dee2e6;
+      padding: 12px 15px;
+    }
+    .recent-activity td {
+      padding: 12px 15px;
+      border-bottom: 1px solid #dee2e6;
+    }
+    .status-dot {
+      color: #28a745;
+      font-size: 16px;
+    }
+    .balance-card {
+      background-color: #fff;
+      text-align: center;
+    }
+    .balance-amount {
+      font-size: 32px;
+      font-weight: 700;
+      margin: 15px 0;
+    }
+    .btn-withdraw {
+      background-color: #0d6efd;
+      color: white;
+      margin-bottom: 15px;
+    }
+    .btn-deposit {
+      background-color: #6c757d;
+      color: white;
+      margin-bottom: 15px;
+    }
+    .help-section {
+      background-color: #f8f9fa;
+      padding: 20px;
+      border-radius: 10px;
+      margin-top: 20px;
+    }
+    .footer {
+      background-color: #f8f9fa;
+      padding: 20px 0;
+      margin-top: 30px;
+    }
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 10px;
+    }
+    .footer-links a {
+      color: #6c757d;
+      text-decoration: none;
+      margin: 0 10px;
+    }
+    .view-all {
+      color: #0d6efd;
+      text-decoration: none;
+      font-weight: 500;
+      display: block;
+      text-align: right;
+      margin-top: 15px;
+    }

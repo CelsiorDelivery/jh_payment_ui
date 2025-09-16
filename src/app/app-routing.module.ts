@@ -21,6 +21,10 @@ const routes: Routes = [
         loadComponent: () => import('./jhmain/dashboard/dash-analytics.component').then((c) => c.DashAnalyticsComponent)
       },
       {
+        path: 'user',
+        loadComponent: () => import('./jhmain/user/user.component').then((c) => c.UserCompnent)
+      },
+      {
         path: 'component',
         loadChildren: () => import('./jhmain/ui-element/ui-basic.module').then((m) => m.UiBasicModule)
       },

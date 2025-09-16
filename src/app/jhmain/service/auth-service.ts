@@ -10,6 +10,15 @@ export class AuthService {
     localStorage.setItem('jwt', token);
   }
 
+  getToken() {
+    var jwtToken = this.token();
+    if(jwtToken == undefined || jwtToken == null) {
+      jwtToken = localStorage.getItem('jwt');  
+    }
+
+    return jwtToken;
+  }
+
   loadToken() {
     const saved = localStorage.getItem('jwt');
     if (saved) this.token.set(saved);
@@ -22,12 +31,16 @@ export class AuthService {
   }
 
   setUser(user: any) {
-    this.token.set(user);
-    localStorage.setItem('user', user);
+    localStorage.setItem('user', JSON.stringify(user));
   }
 
   loadUser(): any {
-    return localStorage.getItem('user');
+    var user = localStorage.getItem('user');
+    if (user != null) {
+      return JSON.parse(user);
+    } else {
+      return null;
+    }
   }
 
   cleanUser() {

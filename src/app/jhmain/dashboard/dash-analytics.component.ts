@@ -28,6 +28,7 @@ export class DashAnalyticsComponent {
   chartOptions_3!: Partial<ApexOptions>;
   baseUrl: string = "";
   userDetail: any = {}
+  users: Array<any> = [];
 
   // constructor
   constructor(
@@ -36,6 +37,7 @@ export class DashAnalyticsComponent {
     private http: HttpClient ) {
       this.baseUrl = environment.apiUrl;      
       this.userDetail = this.auth.loadUser();
+      this.loadDashboard();
       // this.loadDashboard();
 
       this.chartOptions = {
@@ -277,14 +279,15 @@ export class DashAnalyticsComponent {
   ];
 
   loadDashboard() {
-    this.http.get(`${this.baseUrl}/payment-service/dashboard/load/${this.userDetail.userId}`, {
+    this.http.get(`${this.baseUrl}/auth-service/Users/load-dashboard/${this.userDetail.userId}`, {
       headers: { 'Content-Type': 'application/json' }
     }).subscribe((response: any) => {
       if (response.errorCode) { 
         alert(response.errorMessage);
       } else { 
-        this.auth.setToken(response.responseBody.token);
-        this.route.navigate(['/analytics']);
+        if(response.responseBody && response.responseBody['user-list'] != undefined) {
+          this.users = response.responseBody['user-list'];
+        }
       }
     })
   }
