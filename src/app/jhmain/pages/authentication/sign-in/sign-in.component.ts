@@ -34,7 +34,7 @@ export class SignInComponent {
       if (response.errorCode) { 
         alert(response.errorMessage);
       } else { 
-        this.auth.setToken(response.responseBody.token);
+        this.auth.setToken(response.responseBody.accessToken);
         this.auth.setUser(response.responseBody.userDetail);
         this.route.navigate(['/analytics']);
       }
