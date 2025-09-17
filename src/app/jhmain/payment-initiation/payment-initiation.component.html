@@ -1,0 +1,101 @@
+<!-- Custom Header -->
+<header class="main-header">
+  <div class="header-container">
+    <div class="logo">Payyed</div>
+
+    <nav class="nav-links">
+      <a href="#">Send</a>
+      <a href="#">Receive</a>
+      <a href="#">About Us</a>
+      <a href="#">Fees</a>
+      <a href="#">Help</a>
+      <a href="#">Features</a>
+      <a href="#">Pages</a>
+    </nav>
+
+    <div class="auth-buttons">
+      <button class="login-btn">Login</button>
+      <button class="signup-btn">Sign Up</button>
+    </div>
+  </div>
+</header>
+
+<!-- Background + Transfer Section -->
+<div class="transfer-bg">
+  <div class="transfer-overlay">
+    <div class="transfer-container">
+
+      <!-- Left Side Content -->
+      <div class="transfer-info">
+        <h1>The Secure,<br> easiest and fastest<br> way to transfer money</h1>
+        <p>
+          Send & Receive money to your loved ones in minutes with great rates and
+          low fees. Over 180 countries and 30 currencies supported.
+        </p>
+        <a href="#" class="details-link">See more details →</a>
+      </div>
+
+      <!-- Right Side Card -->
+      <div class="transfer-form-card">
+        <!-- Tabs -->
+        <div class="form-body amount-row">
+          <div class="amount-col">
+            <label>Amount</label>
+            <input type="number" placeholder="Enter amount" />
+          </div>
+          <div class="amount-col">
+            <label>Amount</label>
+            <input type="number" placeholder="Enter amount" />
+          </div>
+        </div>
+
+
+        <!-- Transfer Type Switch -->
+        <div class="transfer-type">
+          <button [class.active]="transferType==='user'" (click)="transferType='user'">User</button>
+          <button [class.active]="transferType==='direct'" (click)="transferType='direct'">Direct Transfer</button>
+        </div>
+
+        <!-- User Transfer -->
+        <div *ngIf="transferType === 'user'" class="form-body">
+          <label>Amount</label>
+          <input type="number" placeholder="Enter amount" />
+
+          <label>Select User</label>
+          <select>
+            <option>User 1</option>
+            <option>User 2</option>
+            <option>User 3</option>
+          </select>
+
+          <button class="continue-btn">Send</button>
+        </div>
+
+        <!-- Direct Transfer -->
+        <div *ngIf="transferType === 'direct'" class="form-body">
+          <label>Amount</label>
+          <input type="number" placeholder="Enter amount" />
+
+          <label>Transfer Method</label>
+          <select>
+            <option>Card</option>
+            <option>UPI</option>
+            <option>Net Banking</option>
+          </select>
+
+          <input type="text" placeholder="Account number" />
+          <input type="text" placeholder="Name on card" />
+
+          <div class="payment-details">
+            <input type="text" placeholder="IFSC Code" />
+            <input type="text" placeholder="Expiry Date" />
+            <input type="text" placeholder="CVV" />
+          </div>
+
+          <button class="continue-btn">Send</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
