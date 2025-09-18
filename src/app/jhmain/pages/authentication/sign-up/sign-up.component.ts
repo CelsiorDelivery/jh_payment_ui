@@ -1,9 +1,10 @@
 // angular import
 import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { SharedModule } from '../../../../theme/shared/shared.module';
 
 // project import
-import { SharedModule } from 'src/app/theme/shared/shared.module';
+//import { SharedModule } from 'src/app/theme/shared/shared.module';
 
 @Component({
   selector: 'app-sign-up',
