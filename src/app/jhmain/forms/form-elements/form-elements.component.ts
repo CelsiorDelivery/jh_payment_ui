@@ -2,10 +2,11 @@
 import { Component } from '@angular/core';
 
 // project import
-import { SharedModule } from 'src/app/theme/shared/shared.module';
+//import { SharedModule } from 'src/app/theme/shared/shared.module';
 
 // bootstrap import
 import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
+import { SharedModule } from '../../../theme/shared/shared.module';
 
 @Component({
   selector: 'app-form-elements',
