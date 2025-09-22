@@ -1,0 +1,35 @@
+export class Payprocess {
+    senderUserId:string="";
+    receiverUserId:string="";
+    amount:number=0;
+    paymentMethod:string="";
+}
+
+    export class CardDetails {
+        cardNumber:string="";
+        cardHolderName:string="";
+        cardExpMonth:string="";
+        cardExpYear:string="";
+        cardCvv:string="";
+        amount:number=0;
+        userId:string="";
+    }
+
+export class UpiDetails {
+    upiId:string="";
+    amount:number=0;
+    userId:string="";
+}
+
+export class NetBankingDetails {
+    bankName:string="";
+    accountNumber:string="";
+    ifscCode:string="";
+
+}   
+export class WalletDetails {
+    walletProvider:string="";
+    walletId:string="";
+  
+}   
+

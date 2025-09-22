@@ -45,7 +45,14 @@ export const NavigationItems: NavigationItem[] = [
         type: 'item',
         url: '/transfer',
         icon: 'feather icon-more-vertical'
-      }
+      },
+       {
+        id: 'paymentcredit',
+        title: 'Payment Credit',
+        type: 'item',
+        url: '/paymentcredit',
+        icon: 'feather icon-more-vertical'
+      },
     ]
   },
   {
