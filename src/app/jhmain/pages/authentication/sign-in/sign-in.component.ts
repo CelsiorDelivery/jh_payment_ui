@@ -29,7 +29,7 @@ export class SignInComponent {
 
   loginUser() {
     this.http.post(`${this.baseUrl}/auth-service/Login/signin`, {
-      "userEmail": this.email(),
+      "userName": this.email(),
       "password": this.password()
     }, {
       headers: { 'Content-Type': 'application/json' }
