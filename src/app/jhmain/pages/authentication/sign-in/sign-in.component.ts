@@ -2,16 +2,19 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, signal } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
-import { AuthService } from 'src/app/jhmain/service/auth-service';
+import { AuthService } from '../../../service/auth-service';
+import { environment } from '../../../../../environments/environment';
+import { SharedModule } from '../../../../theme/shared/shared.module';
+//import { AuthService } from 'src/app/jhmain/service/auth-service';
 
 // project import
-import { SharedModule } from 'src/app/theme/shared/shared.module';
-import { environment } from 'src/environments/environment';
+//import { SharedModule } from 'src/app/theme/shared/shared.module';
+//import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-sign-in',
   standalone: true,
-  imports: [SharedModule, RouterModule],
+  imports: [SharedModule,RouterModule],
   templateUrl: './sign-in.component.html',
   styleUrls: ['./sign-in.component.scss']
 })
@@ -26,7 +29,7 @@ export class SignInComponent {
 
   loginUser() {
     this.http.post(`${this.baseUrl}/auth-service/Login/signin`, {
-      "email": this.email(),
+      "userEmail": this.email(),
       "password": this.password()
     }, {
       headers: { 'Content-Type': 'application/json' }

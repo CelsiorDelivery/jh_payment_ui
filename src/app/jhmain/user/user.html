@@ -14,21 +14,19 @@
 
       <!-- Profile Info -->
       <div class="col-md-9">
-        <h4 class="fw-bold text-primary mb-2">Rahul <span class="text-dark">Sharma</span></h4>
+        <h4 class="fw-bold text-primary mb-2">{{userDetail.firstName}} <span class="text-dark">{{userDetail.lastName}}</span></h4>
         <div class="row">
           <div class="col-md-6">
-            <p><strong>Employee Id:</strong> ABC23456</p>
+            <p><strong>Employee Id:</strong> {{userDetail.userId}}</p>
             <p><strong>First Name:</strong> {{userDetail.firstName}}</p>
-            <p><strong>Email:</strong> 01234567890</p>
           </div>
           <div class="col-md-6">
-            <p><strong>Employee Code:</strong> Rahul Sharma</p>
+            <p><strong>Employee Age:</strong> {{userDetail.age}}</p>
             <p><strong>Last Name:</strong> {{userDetail.lastName}}</p>
           </div>
         </div>
-        <p><strong>Mobile:</strong> 9811220033 (P), 9811098110 (S)</p>
+        <p><strong>Mobile:</strong> {{userDetail.mobile}}</p>
         <p><strong>Email:</strong> {{userDetail.email}}</p>
-        <p><strong>Address:</strong> 404 - 405, Ilabs Udyog Vihar, Phase - 3, Delhi, 110045, India</p>
       </div>
     </div>
   </div>
@@ -37,18 +35,18 @@
   <div class="card shadow rounded-3 mt-4 p-3">
     <h6 class="text-primary fw-bold">Account Details</h6>
     <div class="row">
-      <div class="col-md-2"><strong>Account Type:</strong> —</div>
-      <div class="col-md-2"><strong>Account Number:</strong> YESB5480</div>
-      <div class="col-md-2"><strong>Bank:</strong> Axis Bank</div>
-      <div class="col-md-2"><strong>Branch:</strong> Nariman Point</div>
-      <div class="col-md-2"><strong>MICR:</strong> UKN110003</div>
-      <div class="col-md-2"><strong>IFSC:</strong> UKN110003</div>
+      <div class="col-md-2"><strong>Account Number:</strong> {{userDetail.accountNumber}}</div>
+      <div class="col-md-2"><strong>Bank:</strong> {{userDetail.bankName}}</div>
+      <div class="col-md-2"><strong>Branch:</strong> {{userDetail.branch}}</div>
+      <div class="col-md-2"><strong>IFSC:</strong> {{userDetail.ifcCode}}</div>
+      <div class="col-md-2"><strong>UpiId:</strong> {{userDetail.upiid}}</div>
+      <div class="col-md-2"><strong>DateExpiry:</strong> {{userDetail.dateOfExpiry}}</div>
     </div>
   </div>
 
   <!-- Documents & Reporting -->
-  <div class="row mt-4">
-    <!-- Documents -->
+  <!-- <div class="row mt-4">
+    Documents
     <div class="col-md-6">
       <div class="card shadow rounded-3 p-3">
         <h6 class="text-primary fw-bold">Documents Download</h6>
@@ -60,7 +58,7 @@
       </div>
     </div>
 
-    <!-- Reporting -->
+    Reporting
     <div class="col-md-6">
       <div class="card shadow rounded-3 p-3">
         <h6 class="text-primary fw-bold">Reporting Structure</h6>
@@ -74,5 +72,5 @@
         </div>
       </div>
     </div>
-  </div>
+  </div> -->
 </div>

@@ -2,7 +2,10 @@
 import { Component, viewChild } from '@angular/core';
 
 // project import
-import { SharedModule } from 'src/app/theme/shared/shared.module';
+//import { SharedModule } from 'src/app/theme/shared/shared.module';
+
+
+
 import { ProductSaleComponent } from './product-sale/product-sale.component';
 
 // 3rd party import
@@ -11,7 +14,9 @@ import { ApexOptions, ChartComponent, NgApexchartsModule } from 'ng-apexcharts';
 import { Router } from '@angular/router';
 import { AuthService } from '../service/auth-service';
 import { HttpClient } from '@angular/common/http';
-import { environment } from 'src/environments/environment';
+import { environment } from '../../../environments/environment';
+import { SharedModule } from '../../theme/shared/shared.module';
+//import { environment } from 'src/environments/environment';
 @Component({
   selector: 'app-dash-analytics',
   imports: [SharedModule, NgApexchartsModule, ProductSaleComponent],
