@@ -1,9 +1,20 @@
 /* ===== GLOBAL RESET ===== */
-html, body {
+html, body, .pcoded-main-container {
   margin: 0;
   padding: 0;
   width: 100%;
-  height: 100%;
+  height: 100vh;
+  overflow: hidden; /* remove all scrollbars */
+}
+
+/* Fix footer to bottom without causing scroll */
+footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  background: transparent; /* keep design clean */
 }
 
 /* ===== HEADER ===== */
@@ -74,8 +85,8 @@ html, body {
   background-image: url('/assets/images/money-bg.jpg');
   background-size: cover;
   background-position: center;
-  width: 100vw; /* full width */
-  height: 100vh; /* full viewport height */
+  width: 100%;
+  height: 100vh; /* lock full height */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -219,6 +230,8 @@ html, body {
   .continue-btn:hover {
     background: #00b34a;
   }
+
+/* Amount row */
 .amount-row {
   display: flex;
   gap: 15px; /* spacing between columns */
@@ -231,3 +244,56 @@ html, body {
   .amount-col input {
     width: 100%;
   }
+
+/* ===== RESPONSIVE DESIGN ===== */
+
+/* Tablets */
+@media (max-width: 992px) {
+  .transfer-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .transfer-info h1 {
+    font-size: 2.2rem;
+  }
+
+  .transfer-info p {
+    font-size: 1rem;
+  }
+
+  .transfer-form-card {
+    width: 100%;
+    min-width: auto;
+  }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .header-container {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .transfer-info h1 {
+    font-size: 1.8rem;
+  }
+
+  .transfer-info p {
+    font-size: 0.95rem;
+  }
+
+  .amount-row {
+    flex-direction: column; /* stack amount inputs */
+  }
+
+  .tab-header button {
+    font-size: 0.9rem;
+    padding: 10px;
+  }
+
+  .continue-btn {
+    padding: 12px;
+    font-size: 0.95rem;
+  }
+}
