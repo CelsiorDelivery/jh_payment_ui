@@ -35,6 +35,11 @@ const routes: Routes = [
           import('./jhmain/payment-initiation/payment-initiation.component')
             .then((c) => c.PaymentInitiation)
       },
+       {
+        path: 'check-balance',
+        loadComponent: () =>  import('./jhmain/pages/check-balance/check-balance.component')
+            .then((c) => c.CheckBalanceComponent)
+      },
    
       {
         path: 'component',
