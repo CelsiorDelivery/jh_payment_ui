@@ -13,7 +13,7 @@ const routes: Routes = [
     children: [
       {
         path: '',
-        redirectTo: '/register',
+        redirectTo: '/login',
         pathMatch: 'full'
       },
       {
@@ -22,7 +22,7 @@ const routes: Routes = [
       },
       {
         path: 'user',
-        loadComponent: () => import('./jhmain/user/user.component').then((c) => c.UserCompnent)
+        loadComponent: () => import('./jhmain/user/user.component').then((c) => c.UserComponent)
       },
  {
         path: 'paymentcredit',
@@ -74,11 +74,11 @@ const routes: Routes = [
     component: GuestComponent,
     children: [
       {
-        path: 'login',
+        path: 'register',
         loadComponent: () => import('./jhmain/pages/authentication/sign-up/sign-up.component').then((c) => c.SignUpComponent)
       },
       {
-        path: 'register',
+        path: 'login',
         loadComponent: () => import('./jhmain/pages/authentication/sign-in/sign-in.component').then((c) => c.SignInComponent)
       }
     ]

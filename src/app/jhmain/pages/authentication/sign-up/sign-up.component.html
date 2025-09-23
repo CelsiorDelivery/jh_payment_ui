@@ -5,39 +5,131 @@
         <div class="col-md-12">
           <div class="card-body">
             <img src="assets/images/logo-dark.png" alt="logo" class="img-fluid mb-4" />
-            <h4 class="mb-3 f-w-400">Sign up</h4>
+            <h4 class="mb-3 f-w-400">Sign up/Register</h4>
             <div class="input-group mb-3">
               <span class="input-group-text" id="basic-addon1"><i class="feather icon-user"></i></span>
-              <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" />
+              <input type="text" class="form-control" placeholder="First Name" aria-label="first Name" aria-describedby="basic-addon1" 
+              [(ngModel)]="userDetails.firstName" name="firstName" />
             </div>
             <div class="input-group mb-3">
-              <span class="input-group-text" id="basic-addon2"><i class="feather icon-mail"></i></span>
-              <input type="email" class="form-control" placeholder="Email address" aria-label="Username" aria-describedby="basic-addon2" />
+              <span class="input-group-text" id="basic-addon2"><i class="feather icon-user"></i></span>
+              <input type="text" class="form-control" placeholder="Last Name" aria-label="last Name" aria-describedby="basic-addon2"
+              [(ngModel)]="userDetails.lastName" name="lastName" />
             </div>
-            <div class="input-group mb-4">
-              <span class="input-group-text" id="basic-addon3"><i class="feather icon-lock"></i></span>
-              <input type="password" class="form-control" placeholder="Password" aria-label="Username" aria-describedby="basic-addon3" />
+            <div class="input-group mb-3">
+              <span class="input-group-text" id="basic-addon3"><i class="feather icon-mail"></i></span>
+              <input type="email" class="form-control" placeholder="Email address" aria-label="Email address" aria-describedby="basic-addon3"
+              [(ngModel)]="userDetails.email" name="email" />
             </div>
-            <div class="form-group text-start mt-2">
+            <div class="input-group mb-3">
+              <span class="input-group-text" id="basic-addon4"><i class="feather icon-lock"></i></span>
+              <input type="password" class="form-control" placeholder="Password" aria-label="Password" aria-describedby="basic-addon4"
+              [(ngModel)]="userDetails.password" name="password" />
+            </div>
+            <div class="input-group mb-3">
+              <span class="input-group-text" id="basic-addon5"><i class="feather icon-info"></i></span>
+              <input type="number" class="form-control" placeholder="Age" aria-label="age" aria-describedby="basic-addon5"
+              [(ngModel)]="userDetails.age" name="age" />
+            </div>
+            <div class="input-group mb-3">
+              <span class="input-group-text" id="basic-addon6"><i class="feather icon-info"></i></span>
+              <input type="text" class="form-control" placeholder="Phone Number" aria-label="Phone Number" aria-describedby="basic-addon6"
+              [(ngModel)]="userDetails.phoneNumber" name="phoneNumber" />
+            </div>
+
+            <!-- Address -->
+            <h6 class="text-start">Address</h6>
+            <div class="input-group mb-3">
+              <input type="text" class="form-control" placeholder="Street" aria-label="Street" aria-describedby="basic-addon7"
+              [(ngModel)]="userDetails.address.street" name="street" />
+            </div>
+            <div class="input-group mb-3">
+              <input type="text" class="form-control" placeholder="City" aria-label="City" aria-describedby="basic-addon8"
+              [(ngModel)]="userDetails.address.city" name="city" />
+            </div>
+            <div class="input-group mb-3">
+              <input type="text" class="form-control" placeholder="State" aria-label="State" aria-describedby="basic-addon9"
+              [(ngModel)]="userDetails.address.state" name="state" />
+            </div>
+            <div class="input-group mb-3">
+              <input type="text" class="form-control" placeholder="Country" aria-label="Country" aria-describedby="basic-addon10"
+              [(ngModel)]="userDetails.address.country" name="country" />
+            </div>
+            <div class="input-group mb-3">
+              <input type="text" class="form-control" placeholder="Zip Code" aria-label="Zip Code" aria-describedby="basic-addon11"
+              [(ngModel)]="userDetails.address.zipCode" name="zipCode" />
+            </div>
+
+            <!-- Account Details -->
+            <h6 class="text-start">Account Details</h6>
+            <div class="input-group mb-3">
+              <input type="text" class="form-control" placeholder="Account Number" aria-label="Account Number" aria-describedby="basic-addon7"
+              [(ngModel)]="userDetails.accountDetails.accountNumber" name="accountNumber" />
+            </div>
+            <div class="input-group mb-3">
+              <input type="text" class="form-control" placeholder="Bank Name" aria-label="bank name" aria-describedby="basic-addon8"
+              [(ngModel)]="userDetails.accountDetails.bankName" name="bankName" />
+            </div>
+            <div class="input-group mb-3">
+              <input type="text" class="form-control" placeholder="Bank Code" aria-label="bank code" aria-describedby="basic-addon9"
+              [(ngModel)]="userDetails.accountDetails.bankCode" name="bankCode" />
+            </div>
+            <div class="input-group mb-3">
+              <input type="text" class="form-control" placeholder="Branch" aria-label="branch" aria-describedby="basic-addon10"
+              [(ngModel)]="userDetails.accountDetails.branch" name="branch" />
+            </div>
+            <div class="input-group mb-3">
+              <input type="text" class="form-control" placeholder="IFSC code" aria-label="IFSC code" aria-describedby="basic-addon11"
+              [(ngModel)]="userDetails.accountDetails.ifscCode" name="ifscCode" />
+            </div>
+            <div class="input-group mb-3">
+              <input type="text" class="form-control" placeholder="CVV code" aria-label="CVV code" aria-describedby="basic-addon12"
+              [(ngModel)]="userDetails.accountDetails.cvv" name="cvv" />
+            </div>
+            <div class="input-group mb-3">
+              <input type="text" class="form-control" placeholder="UPI ID" aria-label="UPI ID" aria-describedby="basic-addon13"
+              [(ngModel)]="userDetails.accountDetails.upiId" name="upiId" />
+            </div>
+            <div class="input-group mb-3">
+              <input type="date" class="form-control" placeholder="Date Of Expiry" aria-label="Date of expiry" aria-describedby="basic-addon14"
+              [(ngModel)]="userDetails.accountDetails.dateOfExpiry" name="dateOfExpiry" />
+            </div>
+            <div class="input-group mb-3">
+              <select class="form-control" aria-label="Account Type" aria-describedby="basic-addon15"
+                [(ngModel)]="userDetails.accountDetails.accountType" name="accountType">
+                <option disabled selected>Select Account Type</option>
+                <option *ngFor="let type of accountTypes" [ngValue]="type.value">{{ type.label }}</option>
+              </select>
+            </div>
+            <div class="input-group mb-3">
+              <input type="text" class="form-control" placeholder="Nominee" aria-label="Nominee" aria-describedby="basic-addon16"
+              [(ngModel)]="userDetails.accountDetails.nominee" name="nominee" />
+            </div>
+            <div class="input-group mb-3">
+              <select class="form-control" aria-label="Relation With Nominee" aria-describedby="basic-addon15"
+                [(ngModel)]="userDetails.accountDetails.relationWithNominee" name="relationWithNominee">
+                <option value='' disabled selected>Select Relation With Nominee</option>
+                <option *ngFor="let type of nomineeRelations" [ngValue]="type.value">{{ type.label }}</option>
+              </select>
+            </div>
+            <div class="input-group text-start">
               <div class="checkbox checkbox-primary d-inline">
-                <input type="checkbox" name="checkbox-fill-2" id="checkbox-fill-2" />
-                <label for="checkbox-fill-2" class="cr">
-                  Send me the
-                  <a href="javascript:">Newsletter</a>
-                  weekly.
-                </label>
+                <input type="checkbox" name="checkbox-fill-1" id="isActiveCheckbox" [(ngModel)]="userDetails.accountDetails.isActive" />
+                <label for="isActiveCheckbox" class="cr">Is Active</label>
               </div>
             </div>
+            <div class="input-group mb-3">
+              <input type="number" class="form-control" placeholder="Balance" aria-label="Balance" aria-describedby="basic-addon19"
+              [(ngModel)]="userDetails.accountDetails.balance" name="balance" />
+            </div>
             <div class="d-grid">
-              <button class="btn btn-primary btn-block mb-4">Sign up</button>
+              <button class="btn btn-primary btn-block mb-4" (click)="registerUser()" >Sign up</button>
             </div>
             <p class="mb-2">
               Already have an account?
-              <a [routerLink]="['/register']" class="f-w-400">Signin</a>
+              <a [routerLink]="['/login']" class="f-w-400">Signin</a>
             </p>
           </div>
         </div>
       </div>
-    </div>
-  </div>
-</div>
+    
