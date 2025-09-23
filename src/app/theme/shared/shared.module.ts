@@ -15,6 +15,7 @@ import 'mousetrap';
 // bootstrap import
 import { NgbDropdownModule, NgbNavModule, NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { provideHttpClient, withFetch, withInterceptors } from '@angular/common/http';
+import { authInterceptor } from '../../jhmain/config/auth.intercepter';
 //import { authInterceptor } from 'src/app/jhmain/config/auth.intercepter';
 
 @NgModule({
@@ -45,7 +46,7 @@ import { provideHttpClient, withFetch, withInterceptors } from '@angular/common/
     provideHttpClient(
       // optional features
       withFetch(),                     // use fetch API instead of default XHR :contentReference[oaicite:4]{index=4}
-      withInterceptors([
+      withInterceptors([authInterceptor
       ])
     ),
     // ...other providers

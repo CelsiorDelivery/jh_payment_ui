@@ -33,7 +33,7 @@ export class DashAnalyticsComponent {
   chartOptions_3!: Partial<ApexOptions>;
   baseUrl: string = "";
   userDetail: any = {}
-  users: Array<any> = [];
+  users: any = {};
 
   // constructor
   constructor(
@@ -284,16 +284,17 @@ export class DashAnalyticsComponent {
   ];
 
   loadDashboard() {
-    this.http.get(`${this.baseUrl}/auth-service/Users/load-dashboard/${this.userDetail.userId}`, {
-      headers: { 'Content-Type': 'application/json' }
-    }).subscribe((response: any) => {
-      if (response.errorCode) { 
-        alert(response.errorMessage);
-      } else { 
-        if(response.responseBody && response.responseBody['user-list'] != undefined) {
-          this.users = response.responseBody['user-list'];
-        }
+    //this.users = this.userDetail;
+    const url = this.baseUrl + '/auth-service/Users/getall';
+    this.http.get<{ balance: number }>(url).subscribe({
+      next: (response: any) => {
+      this.users = response.responseBody;
+      console.log(this.users);
+      },
+      error: (err) => {
+      alert('Failed to fetch user list. Please try again.');
+      console.error(err);
       }
-    })
+    });
   }
 }
