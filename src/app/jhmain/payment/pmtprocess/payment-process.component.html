@@ -6,7 +6,8 @@
         <div class="form-group">
           <div class="mt-4">
             <span class="text-bold">Sender User ID :</span>
-            <input placeholder="Enter sender id" class="form-control mt-2" type="text" [(ngModel)]="payprocess.senderUserId" />
+            <input placeholder="Enter sender id" class="form-control mt-2" type="text"
+              [(ngModel)]="payprocess.senderUserId" />
           </div>
 
           <div class="mt-4">
@@ -26,7 +27,7 @@
             <span class="text-bold">Payment Method:</span>
             <select [(ngModel)]="payprocess.paymentMethod" class="form-control mt-2" aria-label=".form-select-sm">
               @for(method of paymentMethods; track $index) {
-                <option [value]="method">{{method}}</option>
+              <option [value]="method">{{method}}</option>
               }
             </select>
           </div>
@@ -35,7 +36,7 @@
       </div>
     </div>
 
-    <div class="col-md-3">      
+    <div class="col-md-3">
       <button class="btn btn-primary" (click)="processPayment()" value="Submit Payment">
         <i class="fa fa-solid fa-rocket"></i>
         <span class="ps-2">Submit</span>
@@ -48,14 +49,30 @@
     <h6 class="text-primary fw-bold">Card Details</h6>
     <div class="row">
       <div class="col-md-6">
-        <p><strong>Card Number :</strong> <input type="text" [(ngModel)]="cardDetails.cardNumber"></p>
-
-        <p><strong>Card Holder Name:</strong> <input type="text" [(ngModel)]="cardDetails.cardHolderName"></p>
+        <div class="form-group mt-4">
+          <span>Card Number :</span>
+          <input class="form-control" placeholder="Enter Card Number" type="text" [(ngModel)]="cardDetails.cardNumber">
+        </div>
+        <div class="form-group mt-4">
+          <span>Card Holder Name:</span>
+          <input class="form-control" placeholder="Enter Card Holder's Name" type="text"
+            [(ngModel)]="cardDetails.cardHolderName">
+        </div>
       </div>
       <div class="col-md-6">
-        <p><strong>Expiry Month:</strong> <input type="text" [(ngModel)]="cardDetails.cardExpMonth"></p>
-        <p><strong>Expiry Year :</strong> <input type="text" [(ngModel)]="cardDetails.cardExpYear"></p>
-        <p><strong>CVV :</strong> <input type="text" [(ngModel)]="cardDetails.cardCvv"></p>
+        <div class="form-group mt-4">
+          <span>Expiry Month:</span>
+          <input class="form-control" placeholder="Enter Card Expiry Month" type="text"
+            [(ngModel)]="cardDetails.cardExpMonth">
+        </div>
+        <div class="form-group mt-4">
+          <span>Expiry Year :</span>
+          <input class="form-control" placeholder="Card Expiry Year" type="text" [(ngModel)]="cardDetails.cardExpYear">
+        </div>
+        <div class="form-group mt-4">
+          <span>CVV :</span>
+          <input class="form-control" placeholder="Enter CVV No" type="text" [(ngModel)]="cardDetails.cardCvv">
+        </div>
       </div>
     </div>
   </div>
@@ -66,7 +83,10 @@
     <h6 class="text-primary fw-bold">UPI Details</h6>
     <div class="row">
       <div class="col-md-6">
-        <p><strong>UPI ID:</strong> <input type="text" [(ngModel)]="upiDetails.upiId"></p>
+        <div class="form-control mt-4">
+          <span>UPI ID:</span>
+          <input class="form-control"  placeholder="Enter UPI ID" type="text" [(ngModel)]="upiDetails.upiId">
+        </div>
       </div>
     </div>
   </div>
@@ -77,10 +97,16 @@
     <h6 class="text-primary fw-bold">Wallet Details</h6>
     <div class="row">
       <div class="col-md-6">
-        <p><strong>Wallet Provider:</strong> <input type="text" [(ngModel)]="walletDetails.walletProvider"> </p>
+        <div class="form-group mt-4">
+          <span>Wallet Provider:</span>
+          <input class="form-control" placeholder="Enter Wallet Provider" type="text" [(ngModel)]="walletDetails.walletProvider">
+        </div>
       </div>
       <div class="col-md-6">
-        <p><strong>Wallet Id:</strong> <input type="text" [(ngModel)]="walletDetails.walletId"></p>
+        <div class="form-group mt-4">
+          <span>Wallet Id:</span>
+          <input class="form-control" placeholder="Wallet ID" type="text" [(ngModel)]="walletDetails.walletId">
+        </div>
       </div>
     </div>
   </div>
@@ -91,10 +117,15 @@
     <h6 class="text-primary fw-bold">Net Banking Details</h6>
     <div class="row">
       <div class="col-md-6">
-        <p><strong>Bank Name:</strong> <input type="text" [(ngModel)]="netBankingDetails.bankName"> </p>
+        <div class="form-group mt-4">
+          <span>Bank Name:</span> <input class="form-control" type="text" [(ngModel)]="netBankingDetails.bankName">
+        </div>
       </div>
       <div class="col-md-6">
-        <p><strong>Account Number:</strong> <input type="text" [(ngModel)]="netBankingDetails.accountNumber"></p>
+        <div class="form-group mt-4">
+          <span>Account Number:</span>
+          <input class="form-control"  type="text" [(ngModel)]="netBankingDetails.accountNumber">
+        </div>
       </div>
     </div>
   </div>

@@ -8,8 +8,8 @@ import { Observable, Observer } from 'rxjs';
 @Component({
   selector: 'app-pmtprocess',
   imports: [CommonModule, FormsModule],
-  templateUrl: './pmtprocess.html',
-  styleUrl: './pmtprocess.scss'
+  templateUrl: './payment-process.component.html',
+  styleUrl: './payment-process.component.scss'
 })
 export class Pmtprocess implements OnInit {
 
