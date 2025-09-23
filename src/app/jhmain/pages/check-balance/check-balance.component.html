@@ -1,1 +1,15 @@
-Your balance is: ₹{{ this.userDetail.balance }}
+ <div class="card shadow rounded-3 mt-4 p-3">
+    <h6 class="text-primary fw-bold">Balance Details</h6>
+<div *ngIf="fullName">
+    <div class="col-md-2"><strong>Full Name:</strong> {{fullName}}</div>
+</div>
+<div *ngIf="loading" class="loading-spinner text-center">
+    <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+    Loading...
+</div>
+<div *ngIf="error" class="error">{{ error }}</div>
+<div *ngIf="!loading && !error">
+<div class="col-md-2"><strong>Balance:</strong> $ {{balance}}</div>
+  <p *ngIf="balance === null">Balance information is not available.</p>
+</div>
+</div>

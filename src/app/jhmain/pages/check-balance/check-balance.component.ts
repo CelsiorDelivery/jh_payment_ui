@@ -20,12 +20,12 @@ export class CheckBalanceComponent {
   baseUrl = "";
   userDetail: any = {};
   userId : number;
+  fullName: string = "";
 
   constructor(private auth: AuthService,private http: HttpClient) {
     this.baseUrl = environment.apiUrl;
     this.userDetail = this.auth.loadUser();
     this.userId = this.userDetail.userId;
-    this.balance = this.userDetail.balance;
     this.checkBalance();
   }
 
@@ -34,32 +34,17 @@ export class CheckBalanceComponent {
     this.error = null;
     this.balance = null;
 
-    ///payment-service/ProcessPayment/check-balance/1
-    // Replace with your actual API endpoint
-    const apiUrl = this.baseUrl +'/payment-service/ProcessPayment/check-balance/{userId}';
-
-    this.http.get<{ balance: number }>(apiUrl).subscribe({
-      next: (response) => {
-        this.balance = response.balance;
-        this.loading = false;
+    const url = this.baseUrl + `/payment-service/ProcessPayment/check-balance/${this.userId}`;
+    this.http.get<{ balance: number }>(url).subscribe({
+      next: (response: any) => {
+      this.balance = response.responseBody.balance;
+      this.fullName = response.responseBody.fullName;
+      this.loading = false;
       },
       error: (err) => {
-        this.error = 'Failed to fetch balance. Please try again.';
-        this.loading = false;
+      this.error = 'Failed to fetch balance. Please try again.';
+      this.loading = false;
       }
     });
   }
-
-//    this.http.post(`${this.baseUrl}/auth-service/Users/update`, {
-//       "userId": 10
-//     }, {
-//       headers: { 'Content-Type': 'application/json' }
-//     }).subscribe((response: any) => {
-//       if (response.errorCode) {
-//         alert(response.errorMessage);
-//       } else {
-
-//       }
-//     })
-//   }
 }

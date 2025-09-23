@@ -1,8 +1,10 @@
 // angular import
 import { Component, Input } from '@angular/core';
+import { SharedModule } from '../../../theme/shared/shared.module';
+import { CommonModule } from '@angular/common';
 
 // project import
-import { SharedModule } from 'src/app/theme/shared/shared.module';
+//import { SharedModule } from 'src/app/theme/shared/shared.module';
 
 interface ProgressBarItem {
   value: string;
@@ -12,12 +14,16 @@ interface ProgressBarItem {
 
 @Component({
   selector: 'app-product-sale',
-  imports: [SharedModule],
+  imports: [SharedModule,CommonModule],
   templateUrl: './product-sale.component.html',
   styleUrls: ['./product-sale.component.scss']
 })
 export class ProductSaleComponent {
-  @Input() users: Array<any> = [];
+  @Input() users: any = {};
+
+  ngOnInit() {
+    console.log(this.users);
+  }
 
 
   // public method
