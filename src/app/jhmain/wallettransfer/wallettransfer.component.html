@@ -1,0 +1,29 @@
+
+<div class="card shadow rounded-3 mt-4 p-3">
+    <h6 class="text-primary fw-bold">Wallet To Wallet Transfer</h6>
+    <div class="input-group mb-3">
+              <input type="senderUserId" class="form-control" 
+                placeholder="Sender UserId" 
+                [value]="userId"
+                 />
+            </div>
+            <div class="input-group mb-4">
+              <input type="receiverUserId" 
+                    class="form-control" 
+                    placeholder="Receiver UserId" 
+                    [value]="receiverUserId()"
+                    (input)="receiverUserId.set($any($event.target).value)" />
+            </div>
+               <div class="input-group mb-4">
+              <input type="amount" 
+                    class="form-control" 
+                    placeholder="Amount" 
+                    [value]="amount()"
+                    (input)="amount.set($any($event.target).value)" />
+            </div>
+             <div class="d-grid">
+              <button class="btn btn-block btn-primary mb-4" (click)="submitUser()">submit</button>
+            </div>
+  </div>
+
+  

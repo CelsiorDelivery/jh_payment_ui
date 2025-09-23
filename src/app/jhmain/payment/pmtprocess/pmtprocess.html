@@ -1,0 +1,101 @@
+<div class="container mt-4">
+  <div class="card shadow rounded-3 p-3">
+    <h6 class="text-primary fw-bold">Payment Information</h6>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form-group">
+          <div class="mt-4">
+            <span class="text-bold">Sender User ID :</span>
+            <input placeholder="Enter sender id" class="form-control mt-2" type="text" [(ngModel)]="payprocess.senderUserId" />
+          </div>
+
+          <div class="mt-4">
+            <span class="text-bold">Receiver User ID:</span>
+            <input class="form-control mt-2" type="text" [(ngModel)]="payprocess.receiverUserId" />
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group">
+          <div class="mt-4">
+            <span class="text-bold">Amount:</span>
+            <input class="form-control mt-2" type="text" [(ngModel)]="payprocess.amount" />
+          </div>
+
+          <div class="mt-4">
+            <span class="text-bold">Payment Method:</span>
+            <select [(ngModel)]="payprocess.paymentMethod" class="form-control mt-2" aria-label=".form-select-sm">
+              @for(method of paymentMethods; track $index) {
+                <option [value]="method">{{method}}</option>
+              }
+            </select>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="col-md-3">      
+      <button class="btn btn-primary" (click)="processPayment()" value="Submit Payment">
+        <i class="fa fa-solid fa-rocket"></i>
+        <span class="ps-2">Submit</span>
+      </button>
+    </div>
+  </div>
+  <!-- Conditional Sections Based on Payment Method -->
+  @if (payprocess.paymentMethod === 'Card'){
+  <div class="card shadow rounded-3 mt-4 p-3">
+    <h6 class="text-primary fw-bold">Card Details</h6>
+    <div class="row">
+      <div class="col-md-6">
+        <p><strong>Card Number :</strong> <input type="text" [(ngModel)]="cardDetails.cardNumber"></p>
+
+        <p><strong>Card Holder Name:</strong> <input type="text" [(ngModel)]="cardDetails.cardHolderName"></p>
+      </div>
+      <div class="col-md-6">
+        <p><strong>Expiry Month:</strong> <input type="text" [(ngModel)]="cardDetails.cardExpMonth"></p>
+        <p><strong>Expiry Year :</strong> <input type="text" [(ngModel)]="cardDetails.cardExpYear"></p>
+        <p><strong>CVV :</strong> <input type="text" [(ngModel)]="cardDetails.cardCvv"></p>
+      </div>
+    </div>
+  </div>
+  }
+  @else if(payprocess.paymentMethod === 'UPI')
+  {
+  <div class="card shadow rounded-3 mt-4 p-3">
+    <h6 class="text-primary fw-bold">UPI Details</h6>
+    <div class="row">
+      <div class="col-md-6">
+        <p><strong>UPI ID:</strong> <input type="text" [(ngModel)]="upiDetails.upiId"></p>
+      </div>
+    </div>
+  </div>
+  }
+  @else if(payprocess.paymentMethod === 'Wallet')
+  {
+  <div class="card shadow rounded-3 mt-4 p-3">
+    <h6 class="text-primary fw-bold">Wallet Details</h6>
+    <div class="row">
+      <div class="col-md-6">
+        <p><strong>Wallet Provider:</strong> <input type="text" [(ngModel)]="walletDetails.walletProvider"> </p>
+      </div>
+      <div class="col-md-6">
+        <p><strong>Wallet Id:</strong> <input type="text" [(ngModel)]="walletDetails.walletId"></p>
+      </div>
+    </div>
+  </div>
+  }
+  @else if(payprocess.paymentMethod === 'NetBanking')
+  {
+  <div class="card shadow rounded-3 mt-4 p-3">
+    <h6 class="text-primary fw-bold">Net Banking Details</h6>
+    <div class="row">
+      <div class="col-md-6">
+        <p><strong>Bank Name:</strong> <input type="text" [(ngModel)]="netBankingDetails.bankName"> </p>
+      </div>
+      <div class="col-md-6">
+        <p><strong>Account Number:</strong> <input type="text" [(ngModel)]="netBankingDetails.accountNumber"></p>
+      </div>
+    </div>
+  </div>
+  }

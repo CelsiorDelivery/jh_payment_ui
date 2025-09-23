@@ -24,6 +24,11 @@ const routes: Routes = [
         path: 'user',
         loadComponent: () => import('./jhmain/user/user.component').then((c) => c.UserCompnent)
       },
+ {
+        path: 'paymentcredit',
+        loadComponent: () => import('./jhmain/payment/pmtprocess/pmtprocess').then((c) => c.Pmtprocess)
+      },
+
       {
         path: 'transfer',
         loadComponent: () =>
@@ -36,6 +41,12 @@ const routes: Routes = [
             .then((c) => c.CheckBalanceComponent)
       },
    
+    {
+        path: 'wallettransfer',
+        loadComponent: () =>
+          import('./jhmain/wallettransfer/wallettransfer.component')
+            .then((c) => c.WalletTransferComponent)
+      },
       {
         path: 'component',
         loadChildren: () => import('./jhmain/ui-element/ui-basic.module').then((m) => m.UiBasicModule)
