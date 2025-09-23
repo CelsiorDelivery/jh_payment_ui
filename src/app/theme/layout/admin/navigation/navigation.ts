@@ -45,6 +45,13 @@ export const NavigationItems: NavigationItem[] = [
         type: 'item',
         url: '/transfer',
         icon: 'feather icon-more-vertical'
+      },
+         {
+        id: 'wallettransfer',
+        title: 'WalletTransfer',
+        type: 'item',
+        url: '/wallettransfer',
+        icon: 'feather icon-more-vertical'
       }
     ]
   },

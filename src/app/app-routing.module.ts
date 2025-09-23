@@ -30,7 +30,12 @@ const routes: Routes = [
           import('./jhmain/payment-initiation/payment-initiation.component')
             .then((c) => c.PaymentInitiation)
       },
-   
+    {
+        path: 'wallettransfer',
+        loadComponent: () =>
+          import('./jhmain/wallettransfer/wallettransfer.component')
+            .then((c) => c.WalletTransferComponent)
+      },
       {
         path: 'component',
         loadChildren: () => import('./jhmain/ui-element/ui-basic.module').then((m) => m.UiBasicModule)
