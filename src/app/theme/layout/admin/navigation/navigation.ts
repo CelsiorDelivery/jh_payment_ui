@@ -52,6 +52,13 @@ export const NavigationItems: NavigationItem[] = [
         type: 'item',
         url: '/check-balance',   
         icon: 'fas fa-wallet'
+      },
+         {
+        id: 'wallettransfer',
+        title: 'WalletTransfer',
+        type: 'item',
+        url: '/wallettransfer',
+        icon: 'feather icon-more-vertical'
       }
     ]
   },
