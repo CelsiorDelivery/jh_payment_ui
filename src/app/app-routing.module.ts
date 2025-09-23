@@ -24,6 +24,11 @@ const routes: Routes = [
         path: 'user',
         loadComponent: () => import('./jhmain/user/user.component').then((c) => c.UserCompnent)
       },
+ {
+        path: 'paymentcredit',
+        loadComponent: () => import('./jhmain/payment/pmtprocess/pmtprocess').then((c) => c.Pmtprocess)
+      },
+
       {
         path: 'transfer',
         loadComponent: () =>
