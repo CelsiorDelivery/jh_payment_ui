@@ -1,25 +1,46 @@
-<p>payprocess works!</p>
 <div class="container mt-4">
-  <h4 class="mb-4">Payment Process</h4>
   <div class="card shadow rounded-3 p-3">
     <h6 class="text-primary fw-bold">Payment Information</h6>
     <div class="row">
       <div class="col-md-6">
-        <p><strong>Sender User ID :</strong><input type="text" [(ngModel)]="payprocess.senderUserId"></p>
-        <p><strong>Receiver User ID:</strong> <input type="text" [(ngModel)]="payprocess.receiverUserId"></p>
+        <div class="form-group">
+          <div class="mt-4">
+            <span class="text-bold">Sender User ID :</span>
+            <input placeholder="Enter sender id" class="form-control mt-2" type="text" [(ngModel)]="payprocess.senderUserId" />
+          </div>
 
+          <div class="mt-4">
+            <span class="text-bold">Receiver User ID:</span>
+            <input class="form-control mt-2" type="text" [(ngModel)]="payprocess.receiverUserId" />
+          </div>
+        </div>
       </div>
       <div class="col-md-6">
-        <p><strong>Amount:</strong> <input type="text" [(ngModel)]="payprocess.amount"></p>
-        <p><strong>Payment Method:</strong>
-          <select [(ngModel)]="payprocess.paymentMethod" class="form-select form-select-sm ms-2 "
-            style="max-width: inherit ;" aria-label=".form-select-sm">
-            <option *ngFor="let method of paymentMethods" [value]="method">{{method}}</option>
-          </select>
-        </p>
+        <div class="form-group">
+          <div class="mt-4">
+            <span class="text-bold">Amount:</span>
+            <input class="form-control mt-2" type="text" [(ngModel)]="payprocess.amount" />
+          </div>
+
+          <div class="mt-4">
+            <span class="text-bold">Payment Method:</span>
+            <select [(ngModel)]="payprocess.paymentMethod" class="form-control mt-2" aria-label=".form-select-sm">
+              @for(method of paymentMethods; track $index) {
+                <option [value]="method">{{method}}</option>
+              }
+            </select>
+          </div>
+        </div>
+
       </div>
     </div>
-    <p> <input type="button" (click)="processPayment()" value="Submit Payment"></p>
+
+    <div class="col-md-3">      
+      <button class="btn btn-primary" (click)="processPayment()" value="Submit Payment">
+        <i class="fa fa-solid fa-rocket"></i>
+        <span class="ps-2">Submit</span>
+      </button>
+    </div>
   </div>
   <!-- Conditional Sections Based on Payment Method -->
   @if (payprocess.paymentMethod === 'Card'){
