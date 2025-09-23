@@ -26,7 +26,7 @@ const routes: Routes = [
       },
  {
         path: 'paymentcredit',
-        loadComponent: () => import('./jhmain/payment/pmtprocess/pmtprocess').then((c) => c.Pmtprocess)
+        loadComponent: () => import('./jhmain/payment/pmtprocess/payment-process.component').then((c) => c.Pmtprocess)
       },
 
       {

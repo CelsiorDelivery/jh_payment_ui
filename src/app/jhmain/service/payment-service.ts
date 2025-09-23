@@ -60,7 +60,7 @@ export class PaymentService {
     const payData = {
       "userId": payProcess.receiverUserId,
       "amount": payProcess.amount,
-      "paymentMethod": 1,
+      "paymentMethod": 2,
       "cardDetails": {
         "cardNumber": "",
         "cardHolderName": "",
@@ -99,7 +99,7 @@ export class PaymentService {
     const payData = {
       "userId": payProcess.receiverUserId,
       "amount": payProcess.amount,
-      "paymentMethod": 1,
+      "paymentMethod": 3,
       "cardDetails": {
         "cardNumber": "",
         "cardHolderName": "",
@@ -138,7 +138,7 @@ export class PaymentService {
     const payData = {
       "userId": payProcess.receiverUserId,
       "amount": payProcess.amount,
-      "paymentMethod": 1,
+      "paymentMethod": 4,
       "cardDetails": {
         "cardNumber": "",
         "cardHolderName": "",
