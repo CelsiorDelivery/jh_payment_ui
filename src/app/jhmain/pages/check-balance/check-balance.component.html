@@ -5,6 +5,6 @@
 <div *ngIf="loading">Loading...</div>
 <div *ngIf="error" class="error">{{ error }}</div>
 <div *ngIf="!loading && !error">
-  <p *ngIf="balance !== null">Your balance is: ${{ balance }}</p>
+  <p *ngIf="balance !== null">Your balance is: $ {{ balance }}</p>
   <p *ngIf="balance === null">Balance information is not available.</p>
 </div>
