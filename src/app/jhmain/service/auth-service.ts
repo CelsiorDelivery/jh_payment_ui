@@ -11,7 +11,7 @@ export class AuthService {
   }
 
   getToken() {
-    var jwtToken = this.token();
+    let jwtToken = this.token();
     if(jwtToken == undefined || jwtToken == null) {
       jwtToken = localStorage.getItem('jwt');  
     }
@@ -34,8 +34,8 @@ export class AuthService {
     localStorage.setItem('user', JSON.stringify(user));
   }
 
-  loadUser(): any {
-    var user = localStorage.getItem('user');
+  loadUser(): any | null {
+    const user = localStorage.getItem('user');
     if (user != null) {
       return JSON.parse(user);
     } else {
