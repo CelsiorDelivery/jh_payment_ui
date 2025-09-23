@@ -1,0 +1,22 @@
+.balance-container {
+  max-width: 400px;
+  margin: auto;
+  padding: 20px;
+  background: #f9f9f9;
+  border-radius: 8px;
+}
+
+input {
+  width: 100%;
+  padding: 8px;
+  margin: 10px 0;
+}
+
+button {
+  padding: 10px 15px;
+}
+
+.error {
+  color: red;
+  margin-top: 10px;
+}
