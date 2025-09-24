@@ -21,11 +21,6 @@ const routes: Routes = [
         loadComponent: () =>
           import('./jhmain/dashboard/dash-analytics.component').then((c) => c.DashAnalyticsComponent)
       },
-      //{
-      //  path: 'user',
-      //  loadComponent: () =>
-      //    import('./jhmain/user/user.component').then((c) => c.UserComponent)
-      //},
       {
         path: 'transfer',
         loadComponent: () =>
@@ -37,7 +32,12 @@ const routes: Routes = [
           import('./components/refund/refund.component').then(m => m.RefundComponent)
       },
 
-
+      // 🔹 Add your new transactions route here
+      {
+        path: 'transactions',
+        loadComponent: () =>
+          import('./transactions/transactions.component').then(m => m.TransactionsComponent)
+      },
 
       {
         path: 'component',

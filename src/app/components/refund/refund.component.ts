@@ -45,6 +45,7 @@ export class RefundComponent {
 
 
     this.http.post(apiUrl, {
+
   
     }, {
       headers: { 'Content-Type': 'application/json' }
@@ -55,7 +56,7 @@ export class RefundComponent {
       } else {
         this.successMessage.set(response.message || 'Refund processed successfully');
         this.errorMessage.set('');
-        this.router.navigate(['/analytics']);
+        this.router.navigate(['/refund']);
       }
     });
   }
