@@ -8,7 +8,7 @@ export const authInterceptor: HttpInterceptorFn = (req, next) => {
 
   // Skip login & registration endpoints
   if (req.url.includes('/auth-service/Login/signin') ||
-      req.url.includes('/auth-service/Register')) {
+      req.url.includes('/auth-service/users/register')) {
     return next(req);
   }
 

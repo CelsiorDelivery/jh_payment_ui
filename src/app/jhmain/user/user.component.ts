@@ -3,7 +3,6 @@ import { AuthService } from '../service/auth-service';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../../environments/environment';
 import { SharedModule } from '../../theme/shared/shared.module';
-//import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-user',
@@ -11,7 +10,7 @@ import { SharedModule } from '../../theme/shared/shared.module';
   templateUrl: './user.html',
   styleUrl: './user.scss'
 })
-export class UserCompnent {
+export class UserComponent {
   userDetail: any = {};
   baseUrl = "";
 
@@ -19,7 +18,10 @@ export class UserCompnent {
     private http: HttpClient
   ) {
     this.baseUrl = environment.apiUrl;
-    this.userDetail = this.auth.loadUser();
+    const loadedUser = this.auth.loadUser();
+    if (loadedUser) {
+      this.userDetail = loadedUser;
+    }
   }
 
   update() {
@@ -31,7 +33,6 @@ export class UserCompnent {
       if (response.errorCode) {
         alert(response.errorMessage);
       } else {
-
       }
     })
   }

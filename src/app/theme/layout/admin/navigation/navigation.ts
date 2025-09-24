@@ -46,21 +46,27 @@ export const NavigationItems: NavigationItem[] = [
         url: '/transfer',
         icon: 'feather icon-more-vertical'
       },
-      {
-        id: 'transactions',
-        title: 'Transactions',
+       {
+        id: 'paymentcredit',
+        title: 'Payment Credit',
         type: 'item',
-        url: '/transactions',
-        icon: 'feather icon-list'
+        url: '/paymentcredit',
+        icon: 'feather icon-more-vertical'
       },
-      {
-        id: 'refund',
-        title: 'Refund',
+       {
+        id: 'balance',
+        title: 'Check-Balance',
         type: 'item',
-        url: '/refund',
-        icon: 'feather icon-rotate-ccw'   // 🔹 nice refund-looking icon
+        url: '/check-balance',   
+        icon: 'feather icon-more-vertical'
       },
-      
+         {
+        id: 'wallettransfer',
+        title: 'WalletTransfer',
+        type: 'item',
+        url: '/wallettransfer',
+        icon: 'feather icon-more-vertical'
+      }
     ]
   },
   {
