@@ -23,7 +23,6 @@ export interface AccountDetails {
 }
 
 export interface UserDetails{
-    userId: number;
     firstName: string;
     lastName: string;
     age?: number;
