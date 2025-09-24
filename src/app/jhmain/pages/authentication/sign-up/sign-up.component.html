@@ -91,14 +91,17 @@
               [(ngModel)]="userDetails.accountDetails.upiId" name="upiId" />
             </div>
             <div class="input-group mb-3">
-              <input type="date" class="form-control" placeholder="Date Of Expiry" aria-label="Date of expiry" aria-describedby="basic-addon14"
+              <label for="dateOfExpiry" class="form-label w-100 text-start">Date Of Expiry</label>
+              <input type="date" class="form-control" id="dateOfExpiry" aria-label="Date of expiry" aria-describedby="basic-addon14"
               [(ngModel)]="userDetails.accountDetails.dateOfExpiry" name="dateOfExpiry" />
             </div>
-            <div class="input-group mb-3">
-              <select class="form-control" aria-label="Account Type" aria-describedby="basic-addon15"
+            <div class="mb-3">
+              <label for="accountType" class="form-label w-100 text-start">Select Account Type</label>
+              <select class="form-control" id="accountType" aria-label="Account Type" aria-describedby="basic-addon15"
                 [(ngModel)]="userDetails.accountDetails.accountType" name="accountType">
-                <option disabled selected>Select Account Type</option>
-                <option *ngFor="let type of accountTypes" [ngValue]="type.value">{{ type.label }}</option>
+                @for(type of accountTypes; track $index) {
+                  <option [ngValue]="type.value">{{type.label}}</option>
+                }
               </select>
             </div>
             <div class="input-group mb-3">
@@ -106,10 +109,12 @@
               [(ngModel)]="userDetails.accountDetails.nominee" name="nominee" />
             </div>
             <div class="input-group mb-3">
-              <select class="form-control" aria-label="Relation With Nominee" aria-describedby="basic-addon15"
+            <label for="nomineeWithRelation" class="form-label w-100 text-start">Select Relation With Nominee</label>  
+              <select class="form-control" id="nomineeWithRelation" aria-label="Relation With Nominee" aria-describedby="basic-addon15"
                 [(ngModel)]="userDetails.accountDetails.relationWithNominee" name="relationWithNominee">
-                <option value='' disabled selected>Select Relation With Nominee</option>
-                <option *ngFor="let type of nomineeRelations" [ngValue]="type.value">{{ type.label }}</option>
+                @for(type of nomineeRelations; track $index) {
+              <option [ngValue]="type.value">{{type.label}}</option>
+              }
               </select>
             </div>
             <div class="input-group text-start">
