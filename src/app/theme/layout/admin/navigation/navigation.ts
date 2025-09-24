@@ -62,7 +62,7 @@ export const NavigationItems: NavigationItem[] = [
       },
          {
         id: 'wallettransfer',
-        title: 'WalletTransfer',
+        title: 'Wallet Transfer',
         type: 'item',
         url: '/wallettransfer',
         icon: 'feather icon-more-vertical'
