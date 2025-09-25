@@ -36,7 +36,6 @@ export class SignUpComponent {
   ];
 
   userDetails: UserDetails = {
-    userId: 0,
     firstName: '',
     lastName: '',
     age: undefined,
