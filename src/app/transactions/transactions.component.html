@@ -1,16 +1,58 @@
 <div class="transactions-container">
-  <h2>Transaction IDs</h2>
+  <h3 class="mb-3">Transactions</h3>
 
-  <div *ngIf="loading">Loading transactions...</div>
-  <div *ngIf="errorMessage">{{ errorMessage }}</div>
+  <!-- Loading -->
+  <div *ngIf="loading" class="alert alert-info">
+    Loading transactions...
+  </div>
 
-  <ul *ngIf="!loading && transactions.length > 0">
-    <li *ngFor="let txn of transactions">
-      {{ txn.transactionId }}
-    </li>
-  </ul>
+  <!-- Error -->
+  <div *ngIf="!loading && errorMessage" class="alert alert-danger">
+    {{ errorMessage }}
+  </div>
 
-  <div *ngIf="!loading && transactions.length === 0">
-    No transactions found.
+  <!-- Transactions Table -->
+  <div *ngIf="!loading && transactions && transactions.length > 0">
+    <table class="table table-bordered table-striped">
+      <thead>
+        <tr>
+          <th>Transaction ID</th>
+          <th>Amount</th>
+          <th>Status</th>
+          <th>From User</th>
+          <th>To User</th>
+          <th>Payment ID</th>
+          <th>Product ID</th>
+          <th>Type</th>
+          <th>Created At</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let tx of transactions">
+          <td>{{ tx.transactionId }}</td>
+          <td>{{ tx.amount }}</td>
+          <td>{{ tx.transactionStatus }}</td>
+          <td>{{ tx.fromUserId }}</td>
+          <td>{{ tx.toUserId }}</td>
+          <td>{{ tx.paymentId }}</td>
+          <td>{{ tx.productId }}</td>
+          <td>{{ tx.type }}</td>
+          <td>{{ tx.createdAt | date:'short' }}</td>
+          <td>
+            <!-- Refund button with RouterLink -->
+            <button class="btn btn-sm btn-primary"
+                    [routerLink]="['/refund', tx.transactionId]">
+              Refund
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- No transactions -->
+  <div *ngIf="!loading && transactions && transactions.length === 0">
+    <p>No transactions found.</p>
   </div>
 </div>

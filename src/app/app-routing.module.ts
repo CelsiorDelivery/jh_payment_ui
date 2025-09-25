@@ -23,29 +23,43 @@ const routes: Routes = [
       },
       {
         path: 'user',
-        loadComponent: () => import('./jhmain/user/user.component').then((c) => c.UserComponent)
+        loadComponent: () =>
+          import('./jhmain/user/user.component').then((c) => c.UserComponent)
       },
- {
+      {
         path: 'paymentcredit',
-        loadComponent: () => import('./jhmain/payment/pmtprocess/payment-process.component').then((c) => c.Pmtprocess)
+        loadComponent: () =>
+          import('./jhmain/payment/pmtprocess/payment-process.component').then((c) => c.Pmtprocess)
       },
 
+      // ✅ Transactions route
+      {
+        path: 'transactions',
+        loadComponent: () =>
+          import('./transactions/transactions.component').then((c) => c.TransactionsComponent)
+      },
+
+      // ✅ Refund routes
       {
         path: 'refund',
         loadComponent: () =>
-          import('./components/refund/refund.component').then(m => m.RefundComponent)
+          import('./components/refund/refund.component').then((c) => c.RefundComponent)
       },
-       {
+      {
+        path: 'refund/:transactionId',  // ✅ with param
+        loadComponent: () =>
+          import('./components/refund/refund.component').then((c) => c.RefundComponent)
+      },
+
+      {
         path: 'check-balance',
-        loadComponent: () =>  import('./jhmain/pages/check-balance/check-balance.component')
-            .then((c) => c.CheckBalanceComponent)
+        loadComponent: () =>
+          import('./jhmain/pages/check-balance/check-balance.component').then((c) => c.CheckBalanceComponent)
       },
-   
-    {
+      {
         path: 'wallettransfer',
         loadComponent: () =>
-          import('./jhmain/wallettransfer/wallettransfer.component')
-            .then((c) => c.WalletTransferComponent)
+          import('./jhmain/wallettransfer/wallettransfer.component').then((c) => c.WalletTransferComponent)
       },
       {
         path: 'component',
@@ -80,11 +94,13 @@ const routes: Routes = [
     children: [
       {
         path: 'register',
-        loadComponent: () => import('./jhmain/pages/authentication/sign-up/sign-up.component').then((c) => c.SignUpComponent)
+        loadComponent: () =>
+          import('./jhmain/pages/authentication/sign-up/sign-up.component').then((c) => c.SignUpComponent)
       },
       {
         path: 'login',
-        loadComponent: () => import('./jhmain/pages/authentication/sign-in/sign-in.component').then((c) => c.SignInComponent)
+        loadComponent: () =>
+          import('./jhmain/pages/authentication/sign-in/sign-in.component').then((c) => c.SignInComponent)
       }
     ]
   }

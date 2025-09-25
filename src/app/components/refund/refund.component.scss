@@ -28,5 +28,25 @@ form {
     &:hover {
       background: #1565c0;
     }
+
+    .auth-main {
+      display: flex;
+      justify-content: center; /* keep it horizontally centered */
+      align-items: flex-start; /* push to top */
+      min-height: 100vh; /* full height */
+      padding-top: 40px; /* add some spacing from top */
+    }
+
+    .auth-wrapper {
+      width: 100%;
+      max-width: 500px;
+    }
+
+    .auth-form {
+      background: #fff;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
   }
 }

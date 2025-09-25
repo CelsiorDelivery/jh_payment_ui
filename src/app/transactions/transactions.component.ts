@@ -2,11 +2,16 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { environment } from '../../environments/environment';
+import { AuthService } from '../jhmain/service/auth-service';
+import { SharedModule } from 'src/app/theme/shared/shared.module';
+import { FormsModule } from '@angular/forms';
+import { Router, RouterModule } from '@angular/router';
+
 
 @Component({
   selector: 'app-transactions',
   standalone: true,
-  imports: [CommonModule, HttpClientModule],
+  imports: [SharedModule, CommonModule, FormsModule, RouterModule],
   templateUrl: './transactions.component.html',
   styles: [`
     .transactions-container {
@@ -30,23 +35,33 @@ export class TransactionsComponent implements OnInit {
   loading = true;
   errorMessage = '';
   apiUrl: string = '';
+  userDetail: any = {};
+  userEmail: string = "";
+  
 
   private baseUrl: string = environment.apiUrl;
 
-  constructor(private http: HttpClient) { }
+  constructor(private route: Router, private auth: AuthService, private http: HttpClient) {
+    // ✅ Load user details from AuthService
+    this.userDetail = this.auth.loadUser();
+    this.userEmail = this.userDetail?.email || '';
+  }
+
 
   ngOnInit(): void {
-    // ✅ Hardcoded email for now
-    const userEmail = 'jany.doe@example.com';
-
-    this.apiUrl = `${this.baseUrl}/payment-service/ProcessPayment/transaction/${userEmail}`;
-    this.getTransactions();
+    if (this.userEmail) {
+      this.apiUrl = `${this.baseUrl}/payment-service/ProcessPayment/transaction/${this.userEmail}`;
+      this.getTransactions();
+    } else {
+      this.errorMessage = 'User email not found';
+      this.loading = false;
+    }
   }
 
   getTransactions(): void {
     this.http.get<any[]>(this.apiUrl).subscribe({
-      next: (data) => {
-        this.transactions = data;
+      next: (response: any) => {
+        this.transactions = response.responseBody;
         this.loading = false;
       },
       error: (err) => {

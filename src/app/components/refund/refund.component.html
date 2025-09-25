@@ -1,56 +1,52 @@
-<div class="auth-main">
-  <div class="auth-wrapper">
-    <div class="auth-form">
-      <h3 class="mb-4 text-center">Process Refund</h3>
-
-      <!-- Transaction GUID -->
-      <div class="form-group mb-3">
-        <label for="transactionId">Transaction GUID</label>
-        <input type="text"
-               class="form-control"
-               id="transactionId"
-               placeholder="Enter transaction GUID"
-               [value]="transactionId()"
-               (input)="transactionId.set($any($event.target).value)" />
+<div class="row">
+  <div class="col-sm-12">
+    <div class="card">
+      <!-- Card Header -->
+      <div class="card-header">
+        <h5>Refund</h5>
       </div>
 
-      <!-- Amount -->
-      <div class="form-group mb-3">
-        <label for="amount">Amount</label>
-        <input type="number"
-               class="form-control"
-               id="amount"
-               placeholder="Enter amount"
-               [value]="amount()"
-               (input)="amount.set($any($event.target).value)" />
-      </div>
+      <!-- Card Body -->
+      <div class="card-body">
+        <form>
+          <!-- Transaction GUID -->
+          <div class="form-group mb-3">
+            <label for="transactionId">Transaction GUID</label>
+            <input type="text"
+                   class="form-control"
+                   id="transactionId"
+                   [value]="transactionId()"
+                   disabled /> <!-- disabled so user can't edit -->
+          </div>
 
-      <!-- Reason -->
-      <div class="form-group mb-3">
-        <label for="reason">Reason</label>
-        <textarea class="form-control"
-                  id="reason"
-                  placeholder="Enter reason for refund"
-                  rows="3"
-                  [value]="reason()"
-                  (input)="reason.set($any($event.target).value)"></textarea>
-      </div>
+          <!-- Reason -->
+          <div class="form-group mb-3">
+            <label for="reason">Reason</label>
+            <textarea class="form-control"
+                      id="reason"
+                      placeholder="Enter reason for refund"
+                      rows="3"
+                      [value]="reason()"
+                      (input)="reason.set($any($event.target).value)"></textarea>
+          </div>
 
-      <!-- Submit Button -->
-      <div class="d-grid mt-3">
-        <button type="button" class="btn btn-primary" (click)="submitRefund()">
-          Submit Refund
-        </button>
-      </div>
+          <!-- Submit Button -->
+          <div class="d-grid mt-3">
+            <button type="button" class="btn btn-primary" (click)="submitRefund()">
+              Submit
+            </button>
+          </div>
+        </form>
 
-      <!-- Success Message -->
-      <div *ngIf="successMessage()" class="alert alert-success mt-3">
-        {{ successMessage() }}
-      </div>
+        <!-- Success Message -->
+        <div *ngIf="successMessage()" class="alert alert-success mt-3">
+          {{ successMessage() }}
+        </div>
 
-      <!-- Error Message -->
-      <div *ngIf="errorMessage()" class="alert alert-danger mt-3">
-        {{ errorMessage() }}
+        <!-- Error Message -->
+        <div *ngIf="errorMessage()" class="alert alert-danger mt-3">
+          {{ errorMessage() }}
+        </div>
       </div>
     </div>
   </div>
