@@ -18,7 +18,7 @@ export class PaymentService {
 
   submitCardPayment(payProcess: Payprocess, cardDetails: CardDetails) {
     const payData = {
-      "userId": payProcess.receiverUserId,
+      "userEmail": payProcess.userEmail,
       "amount": payProcess.amount,
       "paymentMethod": 1,
       "cardDetails": {
@@ -58,7 +58,7 @@ export class PaymentService {
 
   submitUpiPayment(payProcess: Payprocess, upiPay: UpiDetails) {
     const payData = {
-      "userId": payProcess.receiverUserId,
+      "userEmail": payProcess.userEmail,
       "amount": payProcess.amount,
       "paymentMethod": 2,
       "cardDetails": {
@@ -97,7 +97,7 @@ export class PaymentService {
 
   submitNetBankPayment(payProcess: Payprocess, netBank: NetBankingDetails) {
     const payData = {
-      "userId": payProcess.receiverUserId,
+      "userEmail": payProcess.userEmail,
       "amount": payProcess.amount,
       "paymentMethod": 3,
       "cardDetails": {
@@ -136,7 +136,7 @@ export class PaymentService {
 
   submitWalletPayment(payProcess: Payprocess, walletPay: WalletDetails) {
     const payData = {
-      "userId": payProcess.receiverUserId,
+      "userEmail": payProcess.userEmail,
       "amount": payProcess.amount,
       "paymentMethod": 4,
       "cardDetails": {
