@@ -36,13 +36,6 @@
       </div>
     </div>
 
-    <div class="col-md-3">
-      <button class="btn btn-primary" (click)="processPayment()" value="Submit Payment">
-        <i class="fa fa-solid fa-rocket"></i>
-        <span class="ps-2">Submit</span>
-      </button>
-    </div>
-  </div>
   <!-- Conditional Sections Based on Payment Method -->
   @if (payprocess.paymentMethod === 'Card'){
   <div class="card shadow rounded-3 mt-4 p-3">
@@ -130,3 +123,10 @@
     </div>
   </div>
   }
+      <div class="col-md-3">
+      <button class="btn btn-primary" (click)="processPayment()" value="Submit Payment">
+        <i class="fa fa-solid fa-rocket"></i>
+        <span class="ps-2">Submit</span>
+      </button>
+    </div>
+  </div>
