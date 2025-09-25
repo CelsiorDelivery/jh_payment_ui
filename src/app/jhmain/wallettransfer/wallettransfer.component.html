@@ -1,29 +1,70 @@
-
-<div class="card shadow rounded-3 mt-4 p-3">
-    <h6 class="text-primary fw-bold">Wallet To Wallet Transfer</h6>
-    <div class="input-group mb-3">
-              <input type="senderUserId" class="form-control" 
-                placeholder="Sender UserId" 
-                [value]="userId"
-                 />
-            </div>
-            <div class="input-group mb-4">
-              <input type="receiverUserId" 
-                    class="form-control" 
-                    placeholder="Receiver UserId" 
-                    [value]="receiverUserId()"
-                    (input)="receiverUserId.set($any($event.target).value)" />
-            </div>
-               <div class="input-group mb-4">
-              <input type="amount" 
-                    class="form-control" 
-                    placeholder="Amount" 
-                    [value]="amount()"
-                    (input)="amount.set($any($event.target).value)" />
-            </div>
-             <div class="d-grid">
-              <button class="btn btn-block btn-primary mb-4" (click)="submitUser()">submit</button>
-            </div>
+<!-- Success Modal -->
+<div class="modal fade" id="successModal" tabindex="-1" aria-labelledby="successModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content bg-success text-white">
+      <div class="modal-header">
+        <h5 class="modal-title" id="successModalLabel">Success</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        {{ successMessage }}
+      </div>
+    </div>
   </div>
+</div>
 
-  
+<!-- Error Modal -->
+<div class="modal fade" id="errorModal" tabindex="-1" aria-labelledby="errorModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content bg-danger text-white">
+      <div class="modal-header">
+        <h5 class="modal-title" id="errorModalLabel">Error</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        {{ errorMessage }}
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container mt-4">
+  <div class="card shadow rounded-3 p-3">
+    <h6 class="text-primary fw-bold">Wallet To Wallet Transfer</h6>
+    <div class="row">
+      <div class="col-md-6">
+        <form [formGroup]="form">
+          <div class="mt-4">
+            <span class="text-bold">Sender User ID :</span>
+            <input type="senderUserId" formControlName="senderUserId" class="form-control" placeholder="Sender UserId"
+              [value]="userId" />
+          </div>
+          <div class="mt-4">
+            <span class="text-bold">Amount:</span>
+            <input type="amount" class="form-control" formControlName="amount" placeholder="Amount" [value]="amount()"
+              (input)="amount.set($any($event.target).value)" />
+          </div>
+        </form>
+      </div>
+
+      <div class="col-md-6">
+        <form [formGroup]="form">
+          <div class="mt-4">
+            <span class="text-bold">Receiver User ID:</span>
+            <input type="receiverUserId" formControlName="receiverUserId" class="form-control"
+              placeholder="Receiver UserId" [value]="receiverUserId()"
+              (input)="receiverUserId.set($any($event.target).value)" />
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <div class="col-md-3 mt-3">
+      <button type="submit" [disabled]="form.invalid" class="btn btn-primary" (click)="submitUser()"
+        value="Submit Payment">
+        <i class="fa fa-solid fa-rocket"></i>
+        <span class="ps-2">Submit</span>
+      </button>
+    </div>
+  </div>
+</div>

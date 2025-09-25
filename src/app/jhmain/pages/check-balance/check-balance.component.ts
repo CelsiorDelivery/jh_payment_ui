@@ -19,12 +19,14 @@ export class CheckBalanceComponent {
   error: string | null = null;
   baseUrl = "";
   userDetail: any = {};
+  userEmail: string = "";
   userId : number;
   fullName: string = "";
 
   constructor(private auth: AuthService,private http: HttpClient) {
     this.baseUrl = environment.apiUrl;
     this.userDetail = this.auth.loadUser();
+    this.userEmail = this.userDetail.email;
     this.userId = this.userDetail.userId;
     this.checkBalance();
   }
@@ -34,7 +36,7 @@ export class CheckBalanceComponent {
     this.error = null;
     this.balance = null;
 
-    const url = this.baseUrl + `/payment-service/ProcessPayment/check-balance/${this.userId}`;
+    const url = this.baseUrl + `/payment-service/ProcessPayment/check-balance/${this.userEmail}`;
     this.http.get<{ balance: number }>(url).subscribe({
       next: (response: any) => {
       this.balance = response.responseBody.balance;

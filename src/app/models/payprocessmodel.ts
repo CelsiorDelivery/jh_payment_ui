@@ -1,6 +1,6 @@
 export class Payprocess {
     senderUserId:string="";
-    receiverUserId:string="";
+    userEmail:string="";
     amount:number=0;
     paymentMethod:string="";
 }
