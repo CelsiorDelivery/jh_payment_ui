@@ -1,5 +1,5 @@
 export class Payprocess {
-    senderUserId:string="";
+    senderEmail:string="";
     userEmail:string="";
     amount:number=0;
     paymentMethod:string="";
