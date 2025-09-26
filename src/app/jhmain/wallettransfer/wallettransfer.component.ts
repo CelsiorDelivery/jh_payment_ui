@@ -5,7 +5,7 @@ import { SharedModule } from 'src/app/theme/shared/shared.module';
 import { AuthService } from '../service/auth-service';
 import { environment } from 'src/environments/environment';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-declare var bootstrap: any; // To use Bootstrap J
+declare let bootstrap: any; // To use Bootstrap J
 
 @Component({
   standalone: true,
@@ -18,17 +18,13 @@ export class WalletTransferComponent {
   senderUserId = signal('');
   receiverUserId = signal('');
   amount = signal(0);
-
-  showSuccess = false;
-  showError = false;
-
   successMessage = '';
   errorMessage = '';
-
   baseUrl: string = '';
   userDetail: any = {};
   userId: string;
   form: FormGroup;
+ isDisabled = true; // or false
   constructor(
     private route: Router,
     private http: HttpClient,
@@ -62,7 +58,7 @@ export class WalletTransferComponent {
       .subscribe({
         next: (response: any) => {
           if (response.statusCode === 200) {
-            this.successMessage = 'Form submitted successfully!';
+            this.successMessage = 'Transaction completed successfully!';
             const modal = new bootstrap.Modal(document.getElementById('successModal'));
             modal.show();
             setTimeout(() => modal.hide(), 5000);

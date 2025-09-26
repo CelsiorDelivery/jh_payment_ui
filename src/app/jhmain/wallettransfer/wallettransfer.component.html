@@ -35,8 +35,8 @@
       <div class="col-md-6">
         <form [formGroup]="form">
           <div class="mt-4">
-            <span class="text-bold">Sender User ID :</span>
-            <input type="senderUserId" formControlName="senderUserId" class="form-control" placeholder="Sender UserId"
+            <span class="text-bold">Sender Email :</span>
+            <input type="text" [disabled]="isDisabled" class="form-control" placeholder="Sender UserId"
               [value]="userId" />
           </div>
           <div class="mt-4">
@@ -50,9 +50,9 @@
       <div class="col-md-6">
         <form [formGroup]="form">
           <div class="mt-4">
-            <span class="text-bold">Receiver User ID:</span>
+            <span class="text-bold">Receiver Email:</span>
             <input type="receiverUserId" formControlName="receiverUserId" class="form-control"
-              placeholder="Receiver UserId" [value]="receiverUserId()"
+              placeholder="Receiver Email" [value]="receiverUserId()"
               (input)="receiverUserId.set($any($event.target).value)" />
           </div>
         </form>
