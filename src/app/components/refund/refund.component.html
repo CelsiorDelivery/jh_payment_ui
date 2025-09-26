@@ -1,0 +1,56 @@
+<div class="row">
+  <div class="col-sm-12">
+    <div class="card">
+      <!-- Card Header -->
+      <div class="card-header">
+        <h5>Refund</h5>
+      </div>
+
+      <!-- Card Body -->
+      <div class="card-body">
+        <form>
+          <!-- Transaction GUID -->
+          <div class="form-group mb-3">
+            <label for="transactionId">Transaction GUID</label>
+            <input type="text"
+                   class="form-control"
+                   id="transactionId"
+                   [value]="transactionId()"
+                   disabled /> <!-- disabled so user can't edit -->
+          </div>
+
+          <!-- Reason -->
+          <div class="form-group mb-3">
+            <label for="reason">Reason</label>
+            <textarea class="form-control"
+                      id="reason"
+                      placeholder="Enter reason for refund"
+                      rows="3"
+                      [value]="reason()"
+                      (input)="reason.set($any($event.target).value)"></textarea>
+          </div>
+
+          <!-- Submit Button -->
+          <div class="d-grid mt-3">
+            <button type="button" class="btn btn-primary" (click)="submitRefund()" value="Submit Payment">
+              <i class="fa fa-solid fa-rocket"></i>
+              <span class="ps-2">Submit</span>
+            </button>
+           
+          </div>
+
+        </form>
+
+        <!-- Success Message -->
+        <div *ngIf="successMessage()" class="alert alert-success mt-3">
+          {{ successMessage() }}
+        </div>
+
+        <!-- Error Message -->
+        <div *ngIf="errorMessage()" class="alert alert-danger mt-3">
+          {{ errorMessage() }}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

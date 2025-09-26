@@ -46,26 +46,42 @@ export const NavigationItems: NavigationItem[] = [
         url: '/transfer',
         icon: 'feather icon-more-vertical'
       },
-       {
+      {
         id: 'paymentcredit',
         title: 'Payment Credit',
         type: 'item',
         url: '/paymentcredit',
         icon: 'feather icon-more-vertical'
       },
-       {
+      {
         id: 'balance',
         title: 'Check-Balance',
         type: 'item',
-        url: '/check-balance',   
+        url: '/check-balance',
         icon: 'feather icon-more-vertical'
       },
-         {
+      {
         id: 'wallettransfer',
         title: 'Wallet Transfer',
         type: 'item',
         url: '/wallettransfer',
         icon: 'feather icon-more-vertical'
+      },
+      // ✅ Added Transactions
+      {
+        id: 'transactions',
+        title: 'Transactions',
+        type: 'item',
+        url: '/transactions',
+        icon: 'feather icon-list'
+      },
+      // ✅ Added Refund
+      {
+        id: 'refund',
+        title: 'Refund',
+        type: 'item',
+        url: '/refund',
+        icon: 'feather icon-rotate-ccw'
       }
     ]
   },
@@ -147,96 +163,4 @@ export const NavigationItems: NavigationItem[] = [
       }
     ]
   }
-  // {
-  //   id: 'chart',
-  //   title: 'Chart',
-  //   type: 'group',
-  //   icon: 'icon-group',
-  //   children: [
-  //     {
-  //       id: 'apexchart',
-  //       title: 'ApexChart',
-  //       type: 'item',
-  //       url: '/chart',
-  //       classes: 'nav-item',
-  //       icon: 'feather icon-pie-chart'
-  //     }
-  //   ]
-  // },
-  // {
-  //   id: 'forms & tables',
-  //   title: 'Forms & Tables',
-  //   type: 'group',
-  //   icon: 'icon-group',
-  //   children: [
-  //     {
-  //       id: 'forms',
-  //       title: 'Basic Forms',
-  //       type: 'item',
-  //       url: '/forms',
-  //       classes: 'nav-item',
-  //       icon: 'feather icon-file-text'
-  //     },
-  //     {
-  //       id: 'tables',
-  //       title: 'Tables',
-  //       type: 'item',
-  //       url: '/tables',
-  //       classes: 'nav-item',
-  //       icon: 'feather icon-server'
-  //     }
-  //   ]
-  // },
-  // {
-  //   id: 'other',
-  //   title: 'Other',
-  //   type: 'group',
-  //   icon: 'icon-group',
-  //   children: [
-  //     {
-  //       id: 'sample-page',
-  //       title: 'Sample Page',
-  //       type: 'item',
-  //       url: '/sample-page',
-  //       classes: 'nav-item',
-  //       icon: 'feather icon-sidebar'
-  //     },
-  //     {
-  //       id: 'menu-level',
-  //       title: 'Menu Levels',
-  //       type: 'collapse',
-  //       icon: 'feather icon-menu',
-  //       children: [
-  //         {
-  //           id: 'menu-level-2.1',
-  //           title: 'Menu Level 2.1',
-  //           type: 'item',
-  //           url: 'javascript:',
-  //           external: true
-  //         },
-  //         {
-  //           id: 'menu-level-2.2',
-  //           title: 'Menu Level 2.2',
-  //           type: 'collapse',
-  //           children: [
-  //             {
-  //               id: 'menu-level-2.2.1',
-  //               title: 'Menu Level 2.2.1',
-  //               type: 'item',
-  //               url: 'javascript:',
-  //               external: true
-  //             },
-  //             {
-  //               id: 'menu-level-2.2.2',
-  //               title: 'Menu Level 2.2.2',
-  //               type: 'item',
-  //               url: 'javascript:',
-  //               external: true
-  //             }
-  //           ]
-  //         }
-  //       ]
-  //     }
-  //   ]
-  // }
 ];

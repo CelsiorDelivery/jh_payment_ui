@@ -1,0 +1,62 @@
+<div class="transactions-container">
+  <h3 class="mb-3">Transactions</h3>
+
+  <!-- Loading -->
+  <div *ngIf="loading" class="alert alert-info">
+    Loading transactions...
+  </div>
+
+  <!-- Error -->
+  <div *ngIf="!loading && errorMessage" class="alert alert-danger">
+    {{ errorMessage }}
+  </div>
+
+  <!-- Transactions Table -->
+  <div *ngIf="!loading && transactions && transactions.length > 0">
+    <table class="table table-bordered table-striped">
+      <thead>
+        <tr>
+          <th>Transaction ID</th>
+          <th>Amount</th>
+          <th>Status</th>
+          <th>From User</th>
+          <th>To User</th>
+          <!--<th>Payment ID</th>
+      <th>Product ID</th>-->
+          <th>Type</th>
+          <th>Created At</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let tx of transactions">
+          <td>{{ tx.transactionId }}</td>
+          <td>{{ tx.amount }}</td>
+          <td>{{ tx.displayStatus }}</td>
+          <td>{{ tx.fromUserId }}</td>
+          <td>{{ tx.toUserId }}</td>
+          <td>{{ tx.type }}</td>
+          <td>{{ tx.createdAt | date:'short' }}</td>
+          <td>
+            <button class="btn btn-sm btn-primary"
+                    [routerLink]="['/refund', tx.transactionId]"
+                    [disabled]="tx.displayStatus === 'Completed'">
+              Refund
+            </button>
+            <button class="btn btn-sm btn-primary"
+                    [routerLink]="['/Partial-refund', tx.transactionId]"
+                    [disabled]="tx.displayStatus === 'Completed'">
+             Partial Refund
+            </button>
+          </td>
+        </tr>
+      </tbody>
+
+    </table>
+  </div>
+
+  <!-- No transactions -->
+  <div *ngIf="!loading && transactions && transactions.length === 0">
+    <p>No transactions found.</p>
+  </div>
+</div>
