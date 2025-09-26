@@ -15,7 +15,6 @@ export class PaymentService {
   constructor(private http: HttpClient, private route: Router, private auth: AuthService) {
     this.baseUrl = environment.apiUrl;
   }
-
   submitCardPayment(payProcess: Payprocess, cardDetails: CardDetails) {
     const payData = {
       "userEmail": payProcess.userEmail,
@@ -44,7 +43,7 @@ export class PaymentService {
 
     this.http.post(`${this.baseUrl}/payment-service/ProcessPayment/credit`, payData,
       {
-        headers: { 'Content-Type': 'application/json' }
+        headers: { 'Content-Type': 'application/json'}
       }).subscribe((response: any) => {
         if (response.errorCode) {
           alert(response.errorMessage);
