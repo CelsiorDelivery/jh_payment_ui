@@ -7,7 +7,7 @@ import packageInfo from '../../package.json';
 export const environment = {
   appVersion: packageInfo.version,
   production: false,
-  apiUrl: 'http://localhost:5102/api/v1'
+  apiUrl: 'http://localhost:5100/api/v1'
 };
 
 /*

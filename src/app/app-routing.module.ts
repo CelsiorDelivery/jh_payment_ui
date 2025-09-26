@@ -41,7 +41,7 @@ const routes: Routes = [
 
       // ✅ Refund routes
       {
-        path: 'refund',
+        path: 'Partial-refund/:transactionId',
         loadComponent: () =>
           import('./components/refund/refund.component').then((c) => c.RefundComponent)
       },

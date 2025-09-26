@@ -56,26 +56,34 @@ export class RefundComponent {
       return;
     }
 
-    const apiUrl = `${this.baseUrl}/payment-service/refund/refund/${this.userEmail}/${transactionGuid}`;
+    const apiUrl = `${this.baseUrl}/payment-service/Refund/refund/${this.userEmail}/${transactionGuid}`;
 
-    this.http.post(apiUrl, {}, {
+    this.http.get(apiUrl, {
       headers: { 'Content-Type': 'application/json' }
     }).subscribe({
-      next: (response: any) => {
-        if (response.errorCode) {
-          this.errorMessage.set(response.errorMessage);
-          this.successMessage.set('');
-        } else {
-          this.successMessage.set(
-            response.responseBody || response.message || 'Refund processed successfully'
-          );
-          this.errorMessage.set('');
-        }
+      next: (response) => {
+        console.log(response);
       },
-      error: () => {
-        this.errorMessage.set('Something went wrong while processing refund');
-        this.successMessage.set('');
+      error: (err) => {
+        console.error(err);//  next: (response: any) => {
+    //    if (response.errorCode) {
+    //      this.errorMessage.set(response.errorMessage);
+    //      this.successMessage.set('');
+    //    } else {
+    //      this.successMessage.set(
+    //        response.responseBody || response.message || 'Refund processed successfully'
+    //      );
+    //      this.errorMessage.set('');
+    //    }
+    //  },
+    //  error: () => {
+    //    this.errorMessage.set('Something went wrong while processing refund');
+    //    this.successMessage.set('');
+    //  }
+    //});
       }
     });
+
+    
   }
 }

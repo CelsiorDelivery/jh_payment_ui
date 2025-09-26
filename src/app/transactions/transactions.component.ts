@@ -61,7 +61,14 @@ export class TransactionsComponent implements OnInit {
   getTransactions(): void {
     this.http.get<any[]>(this.apiUrl).subscribe({
       next: (response: any) => {
-        this.transactions = response.responseBody;
+        this.transactions = (response.responseBody || []).map((tx: any) => {
+          const refundDone = tx.transactionStatus?.toLowerCase() === 'refunded';
+
+          return {
+            ...tx,
+            displayStatus: refundDone ? 'Completed' : 'To Be Initiated'
+          };
+        });
         this.loading = false;
       },
       error: (err) => {
@@ -71,4 +78,5 @@ export class TransactionsComponent implements OnInit {
       }
     });
   }
+
 }

@@ -21,8 +21,8 @@
           <th>Status</th>
           <th>From User</th>
           <th>To User</th>
-          <th>Payment ID</th>
-          <th>Product ID</th>
+          <!--<th>Payment ID</th>
+      <th>Product ID</th>-->
           <th>Type</th>
           <th>Created At</th>
           <th>Action</th>
@@ -32,22 +32,26 @@
         <tr *ngFor="let tx of transactions">
           <td>{{ tx.transactionId }}</td>
           <td>{{ tx.amount }}</td>
-          <td>{{ tx.transactionStatus }}</td>
+          <td>{{ tx.displayStatus }}</td>
           <td>{{ tx.fromUserId }}</td>
           <td>{{ tx.toUserId }}</td>
-          <td>{{ tx.paymentId }}</td>
-          <td>{{ tx.productId }}</td>
           <td>{{ tx.type }}</td>
           <td>{{ tx.createdAt | date:'short' }}</td>
           <td>
-            <!-- Refund button with RouterLink -->
             <button class="btn btn-sm btn-primary"
-                    [routerLink]="['/refund', tx.transactionId]">
+                    [routerLink]="['/refund', tx.transactionId]"
+                    [disabled]="tx.displayStatus === 'Completed'">
               Refund
+            </button>
+            <button class="btn btn-sm btn-primary"
+                    [routerLink]="['/Partial-refund', tx.transactionId]"
+                    [disabled]="tx.displayStatus === 'Completed'">
+             Partial Refund
             </button>
           </td>
         </tr>
       </tbody>
+
     </table>
   </div>
 
