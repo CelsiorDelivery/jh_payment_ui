@@ -116,6 +116,17 @@
               }
               </select>
             </div>
+
+            <div class="input-group mb-3">
+            <label for="role" class="form-label w-100 text-start">Select Role</label>  
+              <select class="form-control" id="role" aria-label="Role" aria-describedby="basic-addon15"
+                [(ngModel)]="userDetails.role" name="role">
+                @for(type of roles; track $index) {
+              <option [ngValue]="type.value">{{type.label}}</option>
+              }
+              </select>
+            </div>
+
             <div class="input-group text-start">
               <div class="checkbox checkbox-primary d-inline">
                 <input type="checkbox" name="checkbox-fill-1" id="isActiveCheckbox" [(ngModel)]="userDetails.accountDetails.isActive" />
@@ -139,4 +150,32 @@
       </div>
     </div>
   </div>
-    
+  <!-- Success Modal -->
+<div class="modal fade" id="successModal" tabindex="-1" aria-labelledby="successModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content bg-success text-white">
+      <div class="modal-header">
+        <h5 class="modal-title" id="successModalLabel">Success</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        {{successMessage}}
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Error Modal -->
+<div class="modal fade" id="errorModal" tabindex="-1" aria-labelledby="errorModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content bg-danger text-white">
+      <div class="modal-header">
+        <h5 class="modal-title" id="errorModalLabel">Error</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        {{ errorMessage }}
+      </div>
+    </div>
+  </div>
+</div>  

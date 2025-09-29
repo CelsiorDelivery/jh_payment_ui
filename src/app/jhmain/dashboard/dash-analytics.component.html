@@ -33,6 +33,8 @@
       ></apx-chart>
     </app-card>
   </div>
+  @if(users && users.length > 0)
+  {
   <div class="col-md-12">
     <app-card cardTitle="Campaign Monitor" cardClass="tab-card tab-content" blockClass="nav-fill" [options]="false">
       <ul ngbNav #nav="ngbNav" aria-busy="true" class="nav-pills">
@@ -78,4 +80,5 @@
       <div [ngbNavOutlet]="nav" class="mt-2"></div>
     </app-card>
   </div>
+}
 </div>

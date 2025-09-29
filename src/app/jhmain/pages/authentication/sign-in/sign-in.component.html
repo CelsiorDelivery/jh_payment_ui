@@ -4,7 +4,6 @@
       <div class="row align-items-center text-center">
         <div class="col-md-12">
           <div class="card-body">
-            <img src="assets/images/logo-dark.png" alt="logo" class="img-fluid mb-4" />
             <h4 class="mb-3 f-w-400">SignIn</h4>
             <div class="input-group mb-3">
               <span class="input-group-text" id="basic-addon1"><i class="feather icon-mail"></i></span>
@@ -40,6 +39,35 @@
             </p>
           </div>
         </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Success Modal -->
+<div class="modal fade" id="successModal" tabindex="-1" aria-labelledby="successModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content bg-success text-white">
+      <div class="modal-header">
+        <h5 class="modal-title" id="successModalLabel">Success</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        Login success
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Error Modal -->
+<div class="modal fade" id="errorModal" tabindex="-1" aria-labelledby="errorModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content bg-danger text-white">
+      <div class="modal-header">
+        <h5 class="modal-title" id="errorModalLabel">Error</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        {{ errorMessage }}
       </div>
     </div>
   </div>
