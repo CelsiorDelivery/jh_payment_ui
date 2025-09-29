@@ -1,11 +1,4 @@
-// angular import
-import { Component, viewChild } from '@angular/core';
-
-// project import
-//import { SharedModule } from 'src/app/theme/shared/shared.module';
-
-
-
+import { Component, OnInit, viewChild } from '@angular/core';
 import { ProductSaleComponent } from './product-sale/product-sale.component';
 
 // 3rd party import
@@ -16,6 +9,7 @@ import { AuthService } from '../service/auth-service';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../../environments/environment';
 import { SharedModule } from '../../theme/shared/shared.module';
+import { Roles } from '../models/user-details';
 //import { environment } from 'src/environments/environment';
 @Component({
   selector: 'app-dash-analytics',
@@ -23,7 +17,7 @@ import { SharedModule } from '../../theme/shared/shared.module';
   templateUrl: './dash-analytics.component.html',
   styleUrls: ['./dash-analytics.component.scss']
 })
-export class DashAnalyticsComponent {
+export class DashAnalyticsComponent implements OnInit {
   // public props
   chart = viewChild<ChartComponent>('chart');
   customerChart = viewChild<ChartComponent>('customerChart');
@@ -42,9 +36,6 @@ export class DashAnalyticsComponent {
     private http: HttpClient ) {
       this.baseUrl = environment.apiUrl;      
       this.userDetail = this.auth.loadUser();
-      this.loadDashboard();
-      // this.loadDashboard();
-
       this.chartOptions = {
         chart: {
           height: 205,
@@ -229,6 +220,13 @@ export class DashAnalyticsComponent {
           }
         }
       };
+  }
+  
+  ngOnInit(): void {
+    // Initialize dashboard data when component loads
+    if (this.userDetail.role === Roles.Admin) {
+      this.loadDashboard();
+    }
   }
   cards = [
     {

@@ -2,12 +2,10 @@
 import { Component, inject } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
 import { SharedModule } from '../../../../theme/shared/shared.module';
-//import { AuthService } from '../../../service/auth-service';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../../../../environments/environment';
 import { UserDetails, NomineeRelation, AccountType, Roles } from 'src/app/jhmain/models/user-details';
-// project import
-//import { SharedModule } from 'src/app/theme/shared/shared.module';
+declare let bootstrap: any; // To use Bootstrap J
 
 @Component({
   selector: 'app-sign-up',
@@ -33,6 +31,11 @@ export class SignUpComponent {
     { label: 'Spouse', value: NomineeRelation.Spouse },
     { label: 'Child', value: NomineeRelation.Child },
     { label: 'Husband', value: NomineeRelation.Husband }
+  ];
+  roles: {label: string, value: Roles}[] = [
+    { label: 'User', value: Roles.User },
+    { label: 'Admin', value: Roles.Admin },
+    { label: 'Merchant', value: Roles.Merchant }
   ];
 
   userDetails: UserDetails = {
@@ -66,18 +69,32 @@ export class SignUpComponent {
     },
     role: Roles.User
   };
+  errorMessage = '';
+  successMessage = '';
 
   registerUser() {
     this.http.post(`${this.baseUrl}/auth-service/users/register`, this.userDetails, {
       headers: { 'Content-Type': 'application/json' }
-    }).subscribe((response: any) => {
-      if (response.errorCode) { 
-      alert(response.errorMessage);
-      } else { 
-      alert('Registration successful!.');
+    }).subscribe({ 
+      next: () => {
+      //alert('Registration successful!.');
+      this.successMessage = 'Registration successful!. Please login to continue.';
+      this.showModal();
       this.route.navigate(['/login']);
+      },
+      error: (err) => {
+        this.errorMessage = 'Registration failed! ' + err.error.errorMessage;
+        this.showModal();
+        console.error('There was an error during registration!', err);
       }
     });
+  }
+
+  showModal()
+  {
+    const modal = new bootstrap.Modal(document.getElementById('errorModal'));
+        modal.show();
+        setTimeout(() => modal.hide(), 2000);
   }
 
 }
